@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang = "en">
+   {% extends "bootstrap/base.html" %}
+   {% block title %}Message Board{% endblock %}
+   {% block head %}
+   {{ super() }}
+   {% endblock %}
+   {% block navbar %}
+   <div class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Message Board</a>
+         </div>
+         <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+               <li><a href="/">Home</a></li>
+               <li><a href="/list">List</a></li>
+               <li><a href="/login">Login</a></li>
+               <li><a href="/todolist">Todolist</a></li>
+               <li><a href="/scraping">Scraping</a></li>
+               <li><a href="/scrap_keyword">scrap_keyword</a></li>
+
+            </ul>
+         </div>
+      </div>
+   </div>
+   {% endblock %}
+   {% block content %}
+
+
+
+
+
+  <head>
+    <title>Flask Intro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Flask!</h2>
+      <br>
+      <p>Click <a href="/">here</a> to go home.</p>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+     {% block page_content %}{% endblock %}
+   </div>
+   {% endblock %}
+</html>

@@ -1,0 +1,100 @@
+import sqlite3 as sql
+import pandas as pd , numpy as np 
+from flask import Flask, redirect, url_for, request,render_template,request,\
+                  session,escape ,session,flash
+
+from flask.ext.script import Manager
+from flask.ext.bootstrap import Bootstrap
+from flask.ext.moment import Moment
+from flask_sqlalchemy import SQLAlchemy
+from controller import  *
+from flask.ext.wtf import Form
+from wtforms import StringField, SubmitField, TextAreaField
+
+
+
+
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hard to guess string'
+
+manager = Manager(app)
+bootstrap = Bootstrap(app)
+moment = Moment(app)
+
+
+class NameForm(Form):
+    query = StringField('please enter your query')
+
+
+
+
+@app.route('/')
+def hello():
+   #return ('hello world')
+   return render_template('base.html') 
+
+
+
+@app.route('/all_data')
+# ref https://sarahleejane.github.io/learning/python/2015/08/09/simple-tables-in-webapps-using-flask-and-pandas-with-python.html
+def all_():
+   data = get_all()
+   return render_template('view.html',tables=[data.to_html()],titles = ['Imdb 5000 movie data set']) 
+
+
+@app.route('/year_data')
+def get_year_data():
+   data = year_data()
+   print (data)
+   return render_template('year_plot.html',data=data) 
+
+
+@app.route('/movie_data')
+def get_movie_data():
+   data = year_data()
+   print (data[0])
+   return render_template('movie_plot.html',data=data) 
+
+
+@app.route('/sql', methods=['GET', 'POST'])
+def get_query_data_base():
+   form =NameForm()
+
+   return render_template('sql_view_base.html') 
+
+
+@app.route('/sql/<query>', methods=['GET', 'POST'])
+# ref http://flask.pocoo.org/docs/0.11/patterns/wtforms/
+def get_query_data(query):
+   form =NameForm()
+
+   print (query)
+   data = grab_data(query)
+   print (data)
+   #return "Query ok !"
+   return render_template('sql_view.html',tables=[data.to_html()],titles = ['Your query result']) 
+   
+
+   
+
+@app.route('/try2')
+def test2():
+   data = test_data()
+   print (data)
+   return render_template('try2.html',data=data) 
+
+
+@app.route('/try3')
+def test3():
+   data = test_data2()
+   print (data)
+   return render_template('try3.html',data=data) 
+
+
+   
+
+
+
+if __name__ == '__main__':
+   app.run(debug = True)

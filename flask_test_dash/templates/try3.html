@@ -1,0 +1,67 @@
+<!--  ref http://www.highcharts.com/demo/line-time-series-->
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% block head %}
+    
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+</head>
+<body>
+    <div id="container" style="width:100%; height:400px;"></div>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.
+        {% endblock %}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <div id="container" style="height: 300px"></div>
+    <script>
+        var data = {{ data | safe }};
+        $(function () {
+            $('#container').highcharts({
+                chart: {
+                    type: 'line'
+                },
+                series: [   {
+        'name': "col1",
+        'data': [1, 2, 3, 4, 5]},
+    {
+        'name': "col2",
+        'data': [2, 4, 6, 8, 10]},
+        {
+        'name': "col3",
+        'data': data[0]}
+        ]
+                ,
+
+             title: {
+                text: 'Stock history'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'volume'
+                }
+            }
+
+
+
+            });
+        });
+    </script>
+
+</body>
+
+
+
+
+

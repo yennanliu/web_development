@@ -1,0 +1,196 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+      </head>
+      <body>
+         <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+         <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+         <div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+         <div id="container4" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+         <div id="footer">
+          
+         </div>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+         <script src="http://code.highcharts.com/highcharts.js"></script>
+         <script src="https://code.highcharts.com/modules/exporting.js"></script>
+         <script src="http://highcharts.github.io/export-csv/export-csv.js"></script>
+         <script>
+            var data = {{ data | safe }};
+            $(function () {
+                $('#container').highcharts({
+                    chart: {
+                        type: 'line'
+                    },
+                    series: [   
+            {
+            'name': "count of movies",
+            'data': data[0]},
+            {
+            'name': "num_critic_for_reviews",
+            'data': data[1]},
+            {
+            'name': "num_user_for_reviews",
+            'data': data[2]}
+            ]
+                    ,
+                 title: {
+                    text: 'count of movies '
+                },
+                xAxis: {
+                    type: 'datetime',
+                    dateTimeLabelFormats: { day: '%Y'}
+                    ,
+                yAxis: {
+                    title: {
+                        text: 'volume'
+                        
+                }
+                    }
+                }
+                });
+            });
+            var data = {{ data | safe }};
+            $(function () {
+                $('#container2').highcharts({
+                    chart: {
+                        type: 'area'
+                    },
+                     plotOptions: {
+                area: {
+                    pointStart: 1940,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+                    series: [   
+            {
+            'name': "count of movies",
+            'data': data[0]},
+            {
+            'name': "num_critic_for_reviews",
+            'data': data[1]},
+            {
+            'name': "num_user_for_reviews",
+            'data': data[2]}
+            ]
+                    ,
+                 title: {
+                    text: 'count of movies '
+                },
+                xAxis: {
+                    type: 'datetime',
+                    dateTimeLabelFormats: { day: '%Y'}
+                    ,
+                yAxis: {
+                    title: {
+                        text: 'volume'
+                        
+                }
+                    }
+                }
+                });
+            }),
+             $(function () {
+                $('#container3').highcharts({
+                    chart: {
+                        type: 'area'
+                    },
+                     plotOptions: {
+                area: {
+                    stacking: 'normal',
+                    lineColor: '#666666',
+                    lineWidth: 1,
+                    marker: {
+                        lineWidth: 1,
+                        lineColor: '#666666'
+                    }
+                }
+            },
+                    series: [   
+            {
+            'name': "count of movies",
+            'data': data[0]},
+            {
+            'name': "num_critic_for_reviews",
+            'data': data[1]},
+            {
+            'name': "num_user_for_reviews",
+            'data': data[2]}
+            ]
+                    ,
+                 title: {
+                    text: 'count of movies '
+                },
+                xAxis: {
+                    type: 'datetime',
+                    dateTimeLabelFormats: { day: '%Y'}
+                    ,
+                yAxis: {
+                    title: {
+                        text: 'volume'
+                        
+                }
+                    }
+                }
+                });
+            }),
+              $(function () {
+                $('#container4').highcharts({
+                    chart: {
+                        type: 'area'
+                    },
+                     plotOptions: {
+                area: {
+                    stacking: 'normal',
+                    lineColor: '#666666',
+                    lineWidth: 1,
+                    marker: {
+                        lineWidth: 1,
+                        lineColor: '#666666'
+                    }
+                }
+            },
+                    series: [   
+            {
+            'name': "count of movies",
+            'data': data[0]},
+            {
+            'name': "num_critic_for_reviews",
+            'data': data[1]},
+            {
+            'name': "num_user_for_reviews",
+            'data': data[2]}
+            ]
+                    ,
+                 title: {
+                    text: 'count of movies '
+                },
+                xAxis: {
+                    type: 'datetime',
+                    dateTimeLabelFormats: { day: '%Y'}
+                    ,
+                yAxis: {
+                    title: {
+                        text: 'volume'
+                        
+                }
+                    }
+                }
+                });
+            })
+         </script>
+      </body>
+   </html>
+
+ 
