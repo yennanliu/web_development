@@ -68,18 +68,31 @@ def get_movie_data():
    return render_template('movie_plot.html',data=data) 
 
 
-@app.route('/sql', methods=['GET', 'POST'])
+
+@app.route('/heat_map')
+def heatmap():
+   #data = year_data()
+   #print (data[0])
+   return render_template('heat_map.html') 
+
+
+@app.route('/sql/', methods=['GET', 'POST'])
+#@app.route('/sql/query=<query>', methods=['GET', 'POST'])
 def get_query_data_base():
    form =NameForm()
 
-   return render_template('sql_view_base.html') 
+   return render_template('sql_view.html') 
 
 
-@app.route('/sql/<query>', methods=['GET', 'POST'])
+@app.route('/sql/query=<query>', methods=['GET', 'POST'])
 # ref http://flask.pocoo.org/docs/0.11/patterns/wtforms/
 def get_query_data(query):
    form =NameForm()
+   query2 = request.form.get('query')
+   #print (request.form['query'])
 
+   print (query2)
+   print ('===========')
    print (query)
    data = grab_data(query)
    print (data)

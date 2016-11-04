@@ -16,11 +16,13 @@
       <div class="container">
          <h1>SQL query page</h1>
          <br>
-         <form action="" method="post">
-            <input type="text" placeholder="qurey" name="qurey" value="{{
-               request.form.query }}">
+         <form action="" method="get">
+            
+             <input id ="qurey" type="text" placeholder="qurey" name = "query">
+             <input type="submit" value="run sql" >
            <input  type="button" value="Execute" onclick="window.location='/sql/{{query}}';">
-            <input class="btn btn-default" value="Search" onclick="window.location.href=$('#get_query_data').val()">
+          <input type="submit" value="Execute2" onchange="window.location = 'sql' + this.value;">
+            
 
 
             
