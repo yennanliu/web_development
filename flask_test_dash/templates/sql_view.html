@@ -2,6 +2,7 @@
 {% block content %}
 {{ super() }}
 
+
 <!doctype html>
 <title>Your SQL</title>
 
@@ -16,9 +17,13 @@
          <h1>SQL query page</h1>
          <br>
          <form action="" method="post">
-            <input type="text" placeholder="sql qurey" name="Query" value="{{
-               request.form.username }}">
-            <input class="btn btn-default" type="submit" value="Execute">
+            <input type="text" placeholder="qurey" name="qurey" value="{{
+               request.form.query }}">
+           <input  type="button" value="Execute" onclick="window.location='/sql/{{query}}';">
+            <input class="btn btn-default" value="Search" onclick="window.location.href=$('#get_query_data').val()">
+
+
+            
          </form>
          {% if error %}
          <p class="error"><strong>Error:</strong> {{ error }}</p>

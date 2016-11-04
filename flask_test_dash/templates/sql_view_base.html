@@ -18,8 +18,10 @@
          <br>
          <form action="" method="post">
             <input type="text" placeholder="sql qurey" name="Query" value="{{
-               request.form.username }}">
-            <input class="btn btn-default" type="submit" value="Execute">
+               request.form.query }}">
+           
+            <input  type="button" value="Execute" onclick="window.location='/sql/{{query}}';">
+            
          </form>
          {% if error %}
          <p class="error"><strong>Error:</strong> {{ error }}</p>
