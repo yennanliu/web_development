@@ -102,6 +102,29 @@ def movie_data():
 	return d
 
 
+def heat_map():
+	df = grab_data("select * from movie_metadata ")
+	df['diff_gross'] = df['gross'] - df['budget']
+	df_copy = df.copy().dropna()
+	director_budge = df_copy.groupby(df_copy['director_name'])['diff_gross'].sum()
+	direcotr_budge_indx = director_budge.sort_values(ascending=False)[:20].index
+	director_budge = df_copy.groupby(df_copy['director_name'])['diff_gross'].sum()
+	direcotr_budge_indx = director_budge.sort_values(ascending=False)[:20].index
+	director_budge_pivot = pd.pivot_table(data = df_copy[df_copy['director_name'].isin(direcotr_budge_indx)],
+                                      index=['title_year'],
+                                      columns=['director_name'],
+                                      values=['diff_gross'],
+                                      aggfunc='sum')
+
+	director_budge_pivot_final = director_budge_pivot.reset_index()['diff_gross']
+	x_categories = list(director_budge_pivot_final.columns)
+	y_categories = list(director_budge_pivot_final.index.values) 
+	d={}
+	d = [[x, y] for x, y in json.loads(director_budge_pivot_final[['Andrew Adamson','Chris Columbus']].to_json(orient='values'))]
+	return d, x_categories, y_categories
+
+
+
 
 
 

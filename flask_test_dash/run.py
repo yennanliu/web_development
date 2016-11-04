@@ -71,9 +71,18 @@ def get_movie_data():
 
 @app.route('/heat_map')
 def heatmap():
-   #data = year_data()
+   #data,x_categories,y_categories = heat_map()
    #print (data[0])
    return render_template('heat_map.html') 
+
+
+@app.route('/notebook')
+
+# adding the ipython's html inside a {% raw %} {% endraw %} block as in the documentation
+# http://stackoverflow.com/questions/33662916/problems-with-flask-ipython-jinja2-integration
+def get_notebook():
+   return render_template('imdb_5000_movie_analysis.slides.html') 
+
 
 
 @app.route('/sql/', methods=['GET', 'POST'])
