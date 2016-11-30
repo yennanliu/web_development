@@ -45,8 +45,10 @@ def index2():
         print ('name :   ', name)
         data = grab_data(name)
         print (data)
-        #return render_template('sql_view.html',form=nameForm,name=name)
-        return render_template('test_form.html',form=nameForm,query=data,tables=[data.to_html()],titles = ['Your query result'])
+        if data is not None:
+          return render_template('test_form.html',form=nameForm,query=data,tables=[data.to_html()],titles = ['Your query result'])
+        else:
+          return render_template('test_form.html',form=nameForm,name=name)
     return render_template('test_form.html',form=nameForm,name=name)
 
 
