@@ -1,12 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+{{ super() }}
+
+
+
 <html>
     <head>
         <title>首页</title>
     </head>
     <body>
         {% if name %}
-            <h1>Hello,{{ name }}!</h1>
+            <h1>YOUR QUERY,{{ name }}!</h1>
         {% else %}
-            <h1>Hello Stranger!</h1>
+            <h1>PLEASE ENTER QUERY!</h1>
         {% endif %}
 
         <form method="POST">
@@ -15,4 +21,18 @@
             {{ form.submit() }}
         </form>
     </body>
+
+
 </html>
+
+
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  <h1>Query result</h1>
+  {% for table in tables %}
+    
+    {{ table|safe }}
+  {% endfor %}
+</div>
+
+{% endblock %}

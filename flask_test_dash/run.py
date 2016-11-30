@@ -29,8 +29,8 @@ class NameForm(Form):
     submit = SubmitField('Execute')
 
 class NameForm2(Form):
-    name = StringField('你的名字？',validators=[Required()])
-    submit = SubmitField('提交')
+    name = StringField('Your query？',validators=[Required()])
+    submit = SubmitField('Execute')
  
 
 
@@ -46,7 +46,7 @@ def index2():
         data = grab_data(name)
         print (data)
         #return render_template('sql_view.html',form=nameForm,name=name)
-        return render_template('sql_view.html',form=nameForm,query=data,tables=[data.to_html()],titles = ['Your query result'])
+        return render_template('test_form.html',form=nameForm,query=data,tables=[data.to_html()],titles = ['Your query result'])
     return render_template('test_form.html',form=nameForm,name=name)
 
 
