@@ -34,7 +34,7 @@ class NameForm2(Form):
  
 
 
-@app.route('/test_form2',methods=['GET','POST'])
+@app.route('/sql/',methods=['GET','POST'])
 def index2():
     name = None
     nameForm = NameForm2()
@@ -46,10 +46,10 @@ def index2():
         data = grab_data(name)
         print (data)
         if data is not None:
-          return render_template('test_form.html',form=nameForm,query=data,tables=[data.to_html()],titles = ['Your query result'])
+          return render_template('sql_output.html',form=nameForm,query=data,tables=[data.to_html()],titles = ['Your query result'])
         else:
-          return render_template('test_form.html',form=nameForm,name=name)
-    return render_template('test_form.html',form=nameForm,name=name)
+          return render_template('sql_output.html',form=nameForm,name=name)
+    return render_template('sql_output.html',form=nameForm,name=name)
 
 
 
@@ -127,35 +127,35 @@ def get_notebook():
 
 
 
-@app.route('/sql/', methods=['GET', 'POST'])
+#@app.route('/sql/', methods=['GET', 'POST'])
 #@app.route('/sql/query=<query>', methods=['GET', 'POST'])
-def get_query_data_base():
-   data= None
-   nameForm =NameForm()
-   if nameForm.validate_on_submit():
-      data = nameForm.query.data
-      nameForm.query.data = ''
-      print ('data:   ', data)
-      output = grab_data(data)
-      print (output)
-      return redirect('sql_view_base.html',form=nameForm,query=data,tables=[output.to_html()],titles = ['Your query result'])
-   return render_template('sql_view_base.html',form=nameForm,query=data) 
+#def get_query_data_base():
+#   data= None
+ #  nameForm =NameForm()
+ #  if nameForm.validate_on_submit():
+  #    data = nameForm.query.data
+  #    nameForm.query.data = ''
+  #    print ('data:   ', data)
+  #    output = grab_data(data)
+  #    print (output)
+  #    return redirect('sql_view_base.html',form=nameForm,query=data,tables=[output.to_html()],titles = ['Your query result'])
+  ## return render_template('sql_view_base.html',form=nameForm,query=data) 
 
 
-@app.route('/sql/<query>', methods=['GET', 'POST'])
+#@app.route('/sql/<query>', methods=['GET', 'POST'])
 # ref http://flask.pocoo.org/docs/0.11/patterns/wtforms/
-def get_query_data(query):
-   form =NameForm()
-   query2 = request.form.get('query')
+#def get_query_data(query):
+#   form =NameForm()
+#   query2 = request.form.get('query')
    #print (request.form['query'])
 
-   print (query2)
-   print ('===========')
-   print (query)
-   data = grab_data(query)
-   print (data)
+#   print (query2)
+#   print ('===========')
+#   print (query)
+#   data = grab_data(query)
+#   print (data)
    #return "Query ok !"
-   return render_template('sql_view.html',tables=[data.to_html()],titles = ['Your query result']) 
+#   return render_template('sql_view.html',tables=[data.to_html()],titles = ['Your query result']) 
    
 
    
