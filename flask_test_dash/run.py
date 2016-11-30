@@ -3,13 +3,14 @@ import pandas as pd , numpy as np
 from flask import Flask, redirect, url_for, request,render_template,request,\
                   session,escape ,session,flash
 
-from flask.ext.script import Manager
-from flask.ext.bootstrap import Bootstrap
-from flask.ext.moment import Moment
+from flask_script import Manager
+from flask_bootstrap import Bootstrap
+from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from controller import  *
-from flask.ext.wtf import Form
+from flask_wtf import Form
 from wtforms import StringField, SubmitField, TextAreaField
+from wtforms.validators import Required
 
 
 
@@ -24,8 +25,42 @@ moment = Moment(app)
 
 
 class NameForm(Form):
-    query = StringField('please enter your query')
+    query = StringField('please enter your query' ,validators=[Required()])
+    submit = SubmitField('Execute')
 
+class NameForm2(Form):
+    name = StringField('你的名字？',validators=[Required()])
+    submit = SubmitField('提交')
+ 
+
+
+@app.route('/test_form2',methods=['GET','POST'])
+def index2():
+    name = None
+    nameForm = NameForm2()
+
+    if nameForm.validate_on_submit():
+        name = nameForm.name.data
+        nameForm.name.data = ''
+        print ('name :   ', name)
+        data = grab_data(name)
+        print (data)
+        return render_template('base.html',form=nameForm,name=name)
+    return render_template('test_form.html',form=nameForm,name=name)
+
+
+
+
+@app.route('/test_form',methods=['GET','POST'])
+def index():
+    name = None
+    nameForm = NameForm2()
+
+    if nameForm.validate_on_submit():
+        name = nameForm.name.data
+        nameForm.name.data = ''
+        print ('name :   ', name)
+    return render_template('test_form.html',form=nameForm,name=name)
 
 
 
@@ -85,15 +120,26 @@ def get_notebook():
 
 
 
+
+
+
+
 @app.route('/sql/', methods=['GET', 'POST'])
 #@app.route('/sql/query=<query>', methods=['GET', 'POST'])
 def get_query_data_base():
-   form =NameForm()
+   data= None
+   nameForm =NameForm()
+   if nameForm.validate_on_submit():
+      data = nameForm.query.data
+      nameForm.query.data = ''
+      print ('data:   ', data)
+      output = grab_data(data)
+      print (output)
+      return redirect('sql_view_base.html',form=nameForm,query=data,tables=[output.to_html()],titles = ['Your query result'])
+   return render_template('sql_view_base.html',form=nameForm,query=data) 
 
-   return render_template('sql_view.html') 
 
-
-@app.route('/sql/query=<query>', methods=['GET', 'POST'])
+@app.route('/sql/<query>', methods=['GET', 'POST'])
 # ref http://flask.pocoo.org/docs/0.11/patterns/wtforms/
 def get_query_data(query):
    form =NameForm()

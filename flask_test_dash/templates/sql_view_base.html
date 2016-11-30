@@ -2,42 +2,37 @@
 {% block content %}
 {{ super() }}
 
-
-<!doctype html>
-<title>Your SQL</title>
-
 <html>
-   <head>
-      <title>Flask Intro - login page</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-   </head>
-   <body>
-      <div class="container">
-         <h1>SQL query page</h1>
-         <br>
-         <form action="" method="post">
-            <input type="text" placeholder="sql qurey" name="Query" value="{{
-               request.form.query }}">
-           
-            <input  type="button" value="Execute" onclick="window.location='/sql/{{query}}';">
-            
-         </form>
-         {% if error %}
-         <p class="error"><strong>Error:</strong> {{ error }}</p>
-         {% endif %}
-      </div>
-   </body>
-</html>
+    <head>
+        <title>首页</title>
+    </head>
+    <body>
 
+     <form method="POST">
+            
+            {{ form.query.label  }} 
+            {{ form.query() }}
+            {{ form.submit() }} 
+            
+              
+     </form>
+        {% if query %}
+            <h1>Hello,{{ query }}!</h1>
+        {% else %}
+            <h1>Hello Stranger!</h1>
+        {% endif %}
+
+       
+    </body>
+</html>
 
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <div class=page>
   <h1>Query result</h1>
-  {% for table in tables %}
+  {% for output in tables %}
     
-    {{ table|safe }}
+    {{ output|safe }}
   {% endfor %}
 </div>
 
- {% endblock %}
+{% endblock %}
