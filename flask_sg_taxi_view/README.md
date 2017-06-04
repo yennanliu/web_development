@@ -8,8 +8,8 @@ ref :  https://data.gov.sg/api/1/util/snippet/api_info.html?resource_id=31ca0cee
 ref :  http://harrywood.co.uk/maps/examples/leaflet/marker-array.view.html
          
 
-demo :  ![image](https://github.com/yennanliu/web_development/blob/master/flask_sg_data_taxi_view/sg_taxi_test1.png)
-        ![image](https://github.com/yennanliu/web_development/blob/master/flask_sg_data_taxi_view/sg_taxi_test2.png)
+demo :  ![image](https://github.com/yennanliu/web_development/blob/master/flask_sg_taxi_view/sg_taxi_test1.png)
+        ![image](https://github.com/yennanliu/web_development/blob/master/flask_sg_taxi_view/sg_taxi_test2.png)
 
 
 run :
@@ -17,7 +17,7 @@ run :
 step 1 
 
 ```
-$cd flask_sg_data_taxi_text_1
+$cd flask_sg_taxi_view
 $python run.py
 
 ```
