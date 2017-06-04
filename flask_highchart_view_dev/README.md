@@ -6,7 +6,7 @@ refer :  https://www.quandl.com/tools/python ;
          http://www.highcharts.com/demo/line-time-series
          
 
-demo :  ![image](https://github.com/yennanliu/web_development/blob/master/flask_test_3_highchart_1/highchart_1.png)
+demo :  ![image](https://github.com/yennanliu/web_development/blob/master/flask_highchart_view_dev/highchart_1.png)
 
 
 run :
@@ -14,7 +14,7 @@ run :
 step 1 
 
 ```
-$cd flask_test_3_highchart_1
+$cd flask_highchart_view_dev
 $python run.py
 
 ```

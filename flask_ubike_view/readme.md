@@ -8,7 +8,7 @@ refer :
 http://first-news-app.readthedocs.io/en/latest/
 
 
-demo :  ![image](https://github.com/yennanliu/web_development/blob/master/flask_ubike_test_1/ubike_test1.png)
+demo :  ![image](https://github.com/yennanliu/web_development/blob/master/flask_ubike_view/ubike_test1.png)
 
 
 run :

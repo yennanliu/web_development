@@ -1,6 +1,6 @@
-demo :  ![image](https://github.com/yennanliu/web_development/blob/master/flask_test_m_board/HOME.png)
-        ![image](https://github.com/yennanliu/web_development/blob/master/flask_test_m_board/LOGIN.png)
-        ![image](https://github.com/yennanliu/web_development/blob/master/flask_test_m_board/SCRAP.png)
+demo :  ![image](https://github.com/yennanliu/web_development/blob/master/flask_msg_board/HOME.png)
+        ![image](https://github.com/yennanliu/web_development/blob/master/flask_msg_board/LOGIN.png)
+        ![image](https://github.com/yennanliu/web_development/blob/master/flask_msg_board/SCRAP.png)
         
         
         
