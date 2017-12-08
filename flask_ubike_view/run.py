@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 import csv
-from controller import get_csv, ubike
+from controller import  ubike
 
 app = Flask(__name__)
 
