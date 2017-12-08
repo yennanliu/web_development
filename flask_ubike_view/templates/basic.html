@@ -18,7 +18,7 @@
             map.addLayer(mapquestLayer);
             {% for stop, value in stop_list[0].items() %}
             L.marker([{{ stop_list[1][stop]}}, {{ stop_list[2][stop] }}]).addTo(map)
-            .bindPopup("{{stop_list[0][stop]}}")
+            .bindPopup("{{stop_list[0][stop],stop_list[1][stop],stop_list[2][stop]}}")
             .openPopup();
             {% endfor %}
             map.addLayer(dataLayer);
