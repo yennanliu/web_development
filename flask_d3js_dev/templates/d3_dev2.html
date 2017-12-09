@@ -1,0 +1,58 @@
+<!--credit :  https://www.dashingd3js.com/using-the-svg-coordinate-space -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script>
+var spaceCircles = [30, 70, 110];
+
+
+var svgContainer = d3.select("body").append("svg")
+                                 .attr("width", 200)
+                                 .attr("height", 200);
+
+var circles = svgContainer.selectAll("circle")
+                       .data(spaceCircles)
+                       .enter()
+                      .append("circle");
+
+
+
+var circleAttributes = circles
+                       .attr("cx", function (d) { return d; })
+                       .attr("cy", function (d) { return d; })
+                       .attr("r", 20 );
+
+
+
+var circleAttributes = circles
+                       .attr("cx", function (d) { return d; })
+                       .attr("cy", function (d) { return d; })
+                       .attr("r", 20 )
+                       .style("fill", function(d) {
+                         var returnColor;
+                         if (d === 30) { returnColor = "green";
+                         } else if (d === 70) { returnColor = "purple";
+                         } else if (d === 110) { returnColor = "red"; }
+                         return returnColor;
+                       });
+
+
+</script>
+
+
+<head>
+     
+
+</head>
+
+<body>
+
+
+
+</body>
+</html> 
+
+
+
