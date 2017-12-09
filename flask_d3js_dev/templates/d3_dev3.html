@@ -1,0 +1,49 @@
+<!--credit :  https://www.dashingd3js.com/data-structures-d3js-accepts -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var jsonCircles = [
+{ "x_axis": 30, "y_axis": 30, "radius": 20, "color" : "green"},
+{ "x_axis": 70, "y_axis": 70, "radius": 20, "color" : "purple"},
+{ "x_axis": 110, "y_axis": 100, "radius": 20, "color" : "red"}];
+
+
+var spaceCircles = [30, 70, 110];
+
+
+var svgContainer = d3.select("body").append("svg")
+                                 .attr("width", 200)
+                                 .attr("height", 200);
+
+var theData = [ 1, 2, 3 ,5,6,7]
+var p = d3.select("body").selectAll("p")
+   .data(theData)
+   .enter()
+   .append("p")
+   .text(function (d,i) {
+     return "i = " + i + " d = "+d ; 
+    });
+
+
+
+</script>
+
+
+<head>
+     
+
+</head>
+
+<body>
+
+
+
+</body>
+</html> 
+
+
+
