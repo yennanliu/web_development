@@ -13,6 +13,10 @@ def test1():
    return render_template('index.html')
 
 
+@app.route('/dev1')
+def dev1():
+   return render_template('dev1.html')
+
 
 
 
