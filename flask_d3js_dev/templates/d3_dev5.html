@@ -1,0 +1,92 @@
+<!--credit :  https://www.dashingd3js.com/svg-basic-shapes-and-d3js -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script>
+
+
+// add json data 
+
+var jsonCircles = [
+   {
+    "x_axis": 30,
+    "y_axis": 30,
+    "radius": 20,
+    "color" : "green"
+   }, {
+    "x_axis": 70,
+    "y_axis": 70,
+   "radius": 20,
+   "color" : "purple"
+  }, {
+   "x_axis": 110,
+   "y_axis": 100,
+   "radius": 20,
+   "color" : "red"
+}];
+
+
+
+
+//Make an SVG Container
+var svgContainer = d3.select("body").append("svg")
+                                     .attr("width", 200)
+                                     .attr("height", 200);
+
+//Draw the Circle
+var circle = svgContainer.append("circle")
+                        .attr("cx", 30)
+                        .attr("cy", 30)
+                        .attr("r", 20);
+
+
+// need to make svg object first then be able to plot shapes below 
+// i.e. svgContainer -> rectangle...
+
+
+//Draw the Rectangle
+var rectangle = svgContainer.append("rect")
+                            .attr("x", 10)
+                            .attr("y", 10)
+                            .attr("width", 50)
+                            .attr("height", 100);
+
+
+//Draw the Ellipse
+var ellipse = svgContainer.append("ellipse")
+                        .attr("cx", 50)
+                        .attr("cy", 50)
+                       .attr("rx", 25)
+                       .attr("ry", 10);
+
+
+// draw a line 
+var line = svgContainer.append("line")
+                         .attr("x1", 5)
+                         .attr("y1", 5)
+                         .attr("x2", 50)
+                         .attr("y2", 50)
+                         .attr("stroke-width", 2)
+                         .attr("stroke", "black");
+
+
+</script>
+
+
+<head>
+     
+
+</head>
+
+<body>
+
+
+
+</body>
+</html> 
+
+
+
