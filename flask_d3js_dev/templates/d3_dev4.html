@@ -7,6 +7,9 @@
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
 
+
+// add json data 
+
 var jsonCircles = [
    {
     "x_axis": 30,
@@ -27,16 +30,19 @@ var jsonCircles = [
 
 
 
-
+// create svg object in html body 
 var svgContainer = d3.select("body").append("svg")
                                      .attr("width", 200)
                                      .attr("height", 200);
  
+// add circle object in svg 
 var circles = svgContainer.selectAll("circle")
                           .data(jsonCircles)
                           .enter()
                           .append("circle");
 
+// add attribute to svg circle object : x,y,r, color. 
+// and plot them as circles 
 var circleAttributes = circles
                        .attr("cx", function (d) { return d.x_axis; })
                        .attr("cy", function (d) { return d.y_axis; })
