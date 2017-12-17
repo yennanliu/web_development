@@ -1,0 +1,93 @@
+<!--credit :  https://www.dashingd3js.com/dynamic-svg-coordinate-space  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script>
+
+
+var jsonRectangles = [
+  { "x_axis": 10, "y_axis": 10, "height": 20, "width":20, "color" : "green" },
+  { "x_axis": 160, "y_axis": 40, "height": 20, "width":20, "color" : "purple" },
+  { "x_axis": 70, "y_axis": 70, "height": 20, "width":20, "color" : "red" }];
+
+ 
+ var svgContainer = d3.select("body").append("svg")
+                                     .attr("width", 100)
+                                     .attr("height", 100);
+ 
+var rectangles = svgContainer.selectAll("rect")
+                             .data(jsonRectangles)
+                             .enter()
+                             .append("rect");
+
+var rectangleAttributes = rectangles
+                          .attr("x", function (d) { return d.x_axis; })
+                          .attr("y", function (d) { return d.y_axis; })
+                          .attr("height", function (d) { return d.height; })
+                          .attr("width", function (d) { return d.width; })
+                          .style("fill", function(d) { return d.color; });
+
+
+//New jsonRectangles Data (with purple rectangle x-coordinate now 160)
+
+var max_x = 0; //This will be updated to be the max x-coordinate
+var max_y = 0; //This will be updated to be the max y-coordinate
+
+//We loop through our jsonRectangles array
+for (var i = 0; i < jsonRectangles.length; i++) {
+
+var temp_x, temp_y;
+
+// To get the farthest right hand point, we need to add the x-coordinate and the width
+var temp_x = jsonRectangles[i].x_axis + jsonRectangles[i].width;
+
+// To get the farthest bottom point, we need to add the y-coordinate and the height
+var temp_y = jsonRectangles[i].y_axis + jsonRectangles[i].height;
+
+  /**
+  * If the temporary x-coordinate is bigger than the max_x,
+  * make the max_x equal to the temp_x
+  * otherwise, do nothing.
+  */
+ if ( temp_x >= max_x ) {
+    max_x = temp_x;
+  }
+
+  /**
+  * If the temporary y-coordinate is bigger than the max_y,
+  * make the max_y equal to the temp_y
+  * otherwise, do nothing.
+  */
+  if ( temp_y >= max_y ) {
+    max_y = temp_y;
+  }
+
+}//End of the loop
+
+max_x;
+//returns 180
+
+max_y;
+//returns 90
+
+
+</script>
+
+
+<head>
+     
+
+</head>
+
+<body>
+
+
+
+</body>
+</html> 
+
+
+
