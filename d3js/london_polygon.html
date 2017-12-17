@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple polygon visualisation</title>
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+   crossorigin=""/>
+
+  <script src="http://cdn.leafletjs.com/leaflet/v0.6.1/leaflet-src.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+   crossorigin=""></script>
+</head>
+<body>
+  <div id="map" style="width: 960px; height: 500px"></div>
+  <script>
+  var map = L.map('map').setView([53, 20], 5);
+  var data_attrib = " | Data: <a href='http://www.openstreetmap.org/'>&copy; OpenStreetMap </a>contributers | <a href='http://d3js.org/'>D3.js</a>"
+  var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: "Map: <a href='http://www.openstreetmap.org/'>&copy; OpenStreetMap </a>contributers" + data_attrib});
+  var esri = L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}.png', {attribution: "Map: <a href='http://www.arcgis.com/home/item.html?id=c4ec722a1cd34cf0a23904aadf8923a0'>ArcGIS - World Physical Map</a>" + data_attrib});
+  var stamen = L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png', {attribution: "Map: <a href='http://maps.stamen.com/#toner/12/37.7706/-122.3782'>Stamen Design</a>" + data_attrib}).addTo(map);
+  var baseLayers = {"stamen": stamen, "OpenStreetMap":osm, "World Physical Map":esri};
+  
+  var overlays = {};
+  d3.json("data/london_postcodes.json", function(error, json) {
+    var polygons1 = [];
+    json.features.map(function(poly,i){
+      if(poly.geometry.type=='MultiPolygon')
+        var polygon = L.multiPolygon(poly.geometry.coordinates.map(function(d){return mapPolygon(d)}), {color: '#f00', weight:'2px'}).addTo(map);
+      else if(poly.geometry.type=='Polygon')
+        var polygon = L.polygon(mapPolygon(poly.geometry.coordinates), {color: '#f00', weight:'2px'}).addTo(map);
+      //overlays["Polygon ("+poly.properties.GEN+")"] = polygon;  
+      polygons1.push(polygon)    
+    })
+    
+    overlays["Original Polygons"]=polygons1;
+    function mapPolygon(poly){
+      return poly.map(function(line){return mapLineString(line)})
+    }
+    function mapLineString(line){
+      return line.map(function(d){return [d[1],d[0]]})  
+    }
+  });
+  d3.json("result_smooth_0.1.geojson", function(error, json) {
+    var polygons2 = [];
+    json.features.map(function(poly,i){
+      if(poly.geometry.type=='MultiPolygon')
+        var polygon = L.multiPolygon(poly.geometry.coordinates.map(function(d){return mapPolygon(d)}), {color: '#0f0', weight:'1px'}).addTo(map);
+      else if(poly.geometry.type=='Polygon')
+        var polygon = L.polygon(mapPolygon(poly.geometry.coordinates), {color: '#0f0', weight:'1px'}).addTo(map);
+      //overlays["Polygon ("+poly.properties.GEN+")"] = polygon;  
+      polygons2.push(polygon)    
+    })
+    overlays["Smoothed Polygons"]=polygons2;
+    L.control.layers(baseLayers, overlays).addTo(map);
+    function mapPolygon(poly){
+      return poly.map(function(line){return mapLineString(line)})
+    }
+    function mapLineString(line){
+      return line.map(function(d){return [d[1],d[0]]})  
+    }
+  });
+  
+</script>
+ </body>
+</html>

@@ -1,0 +1,70 @@
+<!--credit : https://github.com/maptimelex/d3-mapping -->
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A very simple D3 map</title>
+    <!--import JS script from internet -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <!--import JS script from local file -->
+    <!-- <script src="ky-counties.js"></script> -->
+    <!--<script src="london_city.js"></script> -->
+    <script src="d3_data/ky-counties.js"></script>
+
+    
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        background: whitesmoke;
+    }
+    h1 {
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        font-family: "Proxima Nova", Montserrat, sans-serif;
+        font-size: 2em;
+        font-weight: 100;
+        color: #005DAA; /* offical UK Kentucky blue */
+    }
+    .county {
+      stroke: #f12;
+      fill:#005DAA;
+    } 
+</style>
+</head>
+<body>
+    <h1>KY Counties</h1>
+  <script>
+                     
+    var width = window.innerWidth,       // plot size 
+        height = window.innerHeight;
+    
+    var svg = d3.select( "body" )         // select the document's body
+             .append( "svg" )             // create and append a new svg element to it
+             .attr( "width", width )     // give the svg width
+             .attr( "height", height );   // give the svg height
+      
+
+    var projection = d3.geo.albers()     // create a new d3 projection function, albers equal area
+        .center([0, 37.8])               // center the project within Kentucky's mid-latitude
+        .rotate([85.8,0])                // rotate the globe to center with Kentucky's mid-longitude
+        .scale(8000)                     // play with the scale until it's 'zoomed' about right
+        .translate([width / 2, height / 2]);   // center the svg (0,0 is top, left)
+
+    var geoPath = d3.geo.path()
+        .projection(projection);
+        
+    svg.append('g')            // create and append a new SVG 'g' element to the svg
+    .selectAll('path')     // selectAll the path features that haven't been created yet
+    .data(counties.features)  // bind the GeoJSON features data to them
+    .enter()                    // prepare to
+    .append('path')        // append the newly create path elements to the 'g'
+    .attr( "d", geoPath )  // define the screen coordinates of the new path(s)
+    .attr('class','county');  // give each a class name of 'county'
+ 
+  </script>
+</body>
+</html>
