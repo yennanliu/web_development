@@ -1,6 +1,14 @@
 Geo Json map of Colombia
 ========================
 
+
+Run page at local
+
+```bash
+python3 -m http.server
+```
+
+
 Based on the [Map of Thailand](https://gist.github.com/kristw/7fbf031e3205a8a453a8) by Master [Krist Wongsuphasawat](twitter.com/kristw), a simple map of Colombia using [GeoJSON and D3.js](https://github.com/mbostock/d3/wiki/Geo-Paths)
 
 As in Krist example:
