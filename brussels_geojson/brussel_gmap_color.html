@@ -63,9 +63,9 @@ map.data.setStyle(function(feature) {
 
 
 map.data.addListener('click', function(event) {
-    var myHTML = "<h1>" + event.feature.getProperty("category") +
-      "</h1><h2>" + event.feature.getProperty("name") + "</h2>" +
-      event.feature.getProperty("popupContent");
+    var myHTML = "<h1>" + 'id : '+ event.feature.getId() +
+      "</h1><h2>"+'name :'+event.feature.getProperty("name") + "</h2>" +
+       'density : '+ event.feature.getProperty("density");
     infowindow.setContent(myHTML);
     infowindow.setPosition(event.feature.getGeometry().getAt());
     infowindow.setOptions({
@@ -78,7 +78,7 @@ map.data.addListener('click', function(event) {
   // NOTE: This uses cross-domain XHR, and may not work on older browsers.
   map.data.loadGeoJson(
       'brussel.geo.json');
-}
+} 
 
     </script>
     <script async defer
