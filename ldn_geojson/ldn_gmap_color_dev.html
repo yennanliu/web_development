@@ -88,7 +88,38 @@
          // NOTE: This uses cross-domain XHR, and may not work on older browsers.
          //map.data.loadGeoJson('ldn.geo.json');
          map.data.addGeoJson(data);
+        
+        // *********
+        var infowindow = new google.maps.InfoWindow({});
 
+        var marker, i;
+
+        for (i = 0; i < data.features.length; i++) {
+        //console.log(data.features[i].geometry.coordinates[0][0][0]),
+        data_ = data.features[i].geometry.coordinates[0][0]
+        console.log(data_)
+
+        marker = new google.maps.Marker({
+        //position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        //console.log(data)
+        //position: new google.maps.LatLng(-0.167, 51),
+        position: new google.maps.LatLng(data_[1], data_[0]),
+
+        //position : new google.maps.LatLng(data.features[i].geometry.coordinates[0][0][0], data.features[i].geometry.coordinates[0][0][1])
+        //data.features[0].geometry.coordinates[0][0]
+        // features : data.features
+        map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        return function () {
+        infowindow.setContent(data.features[i].id);
+        infowindow.open(map, marker);
+        }
+        })(marker, i));
+        }
+        // *********
+        
          } 
       </script>
       <script async defer
