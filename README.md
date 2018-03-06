@@ -1,11 +1,11 @@
 # web_development
 
-Python application with web framework  
+
+Backend : Python web framework 
 - Flask
 - Django
 
-and Javascript library 
-
+Frontend : Javescript library
 - D3.js
 - leafletjs
 - Highchart
@@ -22,3 +22,16 @@ and Javascript library
 
 - Visualize Singapore taxi locations 
 	- https://github.com/yennanliu/web_development/tree/master/flask_sg_taxi_view
+
+
+
+## Ref 
+
+- Add multiple popup to Google map 
+	- https://www.taniarascia.com/google-maps-apis-for-multiple-locations/
+
+
+
+
+
+
