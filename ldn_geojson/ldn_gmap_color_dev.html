@@ -9,10 +9,7 @@
          /* 
          * multiple pop up 
          https://www.taniarascia.com/google-maps-apis-for-multiple-locations/
-
          */
-
-
          /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */
          #map {
@@ -37,6 +34,7 @@
    </head>
    <body>
       <div id="map"></div>
+      <div id="info-box">?</div>
       <script>
          // This example uses the Google Maps JavaScript API's Data layer
          // to create a rectangular polygon with 2 holes in it.
@@ -58,12 +56,12 @@
           position: {lat: 51.5074 , lng: 0.1278},
           map: map,
           title: 'Uluru (Ayers Rock)'
-        });
-        marker.addListener('click', function() {
+         });
+         marker.addListener('click', function() {
           infowindow.open(map, marker);
-        });
-
-
+         });
+         
+         
          map.data.setStyle(function(feature) {
          var ascii = feature.getProperty('ascii');
          // generate random number that change hex-gon colors 
@@ -73,6 +71,12 @@
          fillColor: color,
          strokeWeight: 1
          };
+         });
+         
+         map.data.addListener('mouseover', function(event) {
+         event.feature.setProperty('isColorful', true);
+         document.getElementById('info-box').textContent = 'random number :'+ Math.random()
+         console.log('mouseover event')
          });
          map.data.addListener('click', function(event) {
          var myHTML = "<h1>" + 'id : '+ event.feature.getId() +
@@ -88,38 +92,38 @@
          // NOTE: This uses cross-domain XHR, and may not work on older browsers.
          //map.data.loadGeoJson('ldn.geo.json');
          map.data.addGeoJson(data);
-        
-        // *********
-        var infowindow = new google.maps.InfoWindow({});
-
-        var marker, i;
-
-        for (i = 0; i < data.features.length; i++) {
-        //console.log(data.features[i].geometry.coordinates[0][0][0]),
-        data_ = data.features[i].geometry.coordinates[0][0]
-        console.log(data_)
-
-        marker = new google.maps.Marker({
-        //position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        //console.log(data)
-        //position: new google.maps.LatLng(-0.167, 51),
-        position: new google.maps.LatLng(data_[1], data_[0]),
-
-        //position : new google.maps.LatLng(data.features[i].geometry.coordinates[0][0][0], data.features[i].geometry.coordinates[0][0][1])
-        //data.features[0].geometry.coordinates[0][0]
-        // features : data.features
-        map: map
-        });
-
-        google.maps.event.addListener(marker, 'click', (function (marker, i) {
-        return function () {
-        infowindow.setContent(data.features[i].id);
-        infowindow.open(map, marker);
-        }
-        })(marker, i));
-        }
-        // *********
-        
+         
+         // *********
+         var infowindow = new google.maps.InfoWindow({});
+         
+         var marker, i;
+         
+         for (i = 0; i < data.features.length; i++) {
+         //console.log(data.features[i].geometry.coordinates[0][0][0]),
+         data_ = data.features[i].geometry.coordinates[0][0]
+         console.log(data_)
+         
+         marker = new google.maps.Marker({
+         //position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+         //console.log(data)
+         //position: new google.maps.LatLng(-0.167, 51),
+         position: new google.maps.LatLng(data_[1], data_[0]),
+         
+         //position : new google.maps.LatLng(data.features[i].geometry.coordinates[0][0][0], data.features[i].geometry.coordinates[0][0][1])
+         //data.features[0].geometry.coordinates[0][0]
+         // features : data.features
+         map: map
+         });
+         
+         google.maps.event.addListener(marker, 'click', (function (marker, i) {
+         return function () {
+         infowindow.setContent(data.features[i].id);
+         infowindow.open(map, marker);
+         }
+         })(marker, i));
+         }
+         // *********
+         
          } 
       </script>
       <script async defer
