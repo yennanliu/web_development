@@ -30,6 +30,9 @@ Frontend : Javescript library
 - Add multiple popup to Google map 
 	- https://www.taniarascia.com/google-maps-apis-for-multiple-locations/
 
+- Add event intereact with Google map polygon 
+	- https://stackoverflow.com/questions/35905770/trigger-click-on-a-single-geojson-polygon-after-load
+
 
 
 
