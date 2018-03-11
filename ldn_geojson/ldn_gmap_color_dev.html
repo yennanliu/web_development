@@ -64,6 +64,10 @@
       <script>
          // This example uses the Google Maps JavaScript API's Data layer
          // to create a rectangular polygon with 2 holes in it.
+
+
+
+
          var map;
          function initMap() {
            map = new google.maps.Map(document.getElementById('map'), {
@@ -82,6 +86,11 @@
           position: {lat: 51.5074 , lng: 0.1278},
           map: map,
           title: 'Uluru (Ayers Rock)'
+         });
+         var marker = new google.maps.Marker({
+          position: {lat: 50.5074 , lng: 0.1278},
+          map: map,
+          title: 'uu'
          });
          marker.addListener('click', function() {
           infowindow.open(map, marker);
@@ -121,34 +130,10 @@
          
          // *********
          var infowindow = new google.maps.InfoWindow({});
-         
-         var marker, i;
-         
-         for (i = 0; i < data.features.length; i++) {
-         //console.log(data.features[i].geometry.coordinates[0][0][0]),
-         data_ = data.features[i].geometry.coordinates[0][0]
-         console.log(data_)
-         
-         marker = new google.maps.Marker({
-         //position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-         //console.log(data)
-         //position: new google.maps.LatLng(-0.167, 51),
-         position: new google.maps.LatLng(data_[1], data_[0]),
-         
-         //position : new google.maps.LatLng(data.features[i].geometry.coordinates[0][0][0], data.features[i].geometry.coordinates[0][0][1])
-         //data.features[0].geometry.coordinates[0][0]
-         // features : data.features
-         map: map
-         });
-         
-         google.maps.event.addListener(marker, 'click', (function (marker, i) {
-         return function () {
-         infowindow.setContent(data.features[i].id);
-         infowindow.open(map, marker);
-         }
-         })(marker, i));
-         }
+      
          // *********
+         // Create markers.
+ 
          
          } 
       </script>
