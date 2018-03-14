@@ -29,10 +29,10 @@ app.controller('MainCtrl', function($scope, $http) {
     stateLayer.loadGeoJson('ldn.geo.json');
     // Set and apply styling to the stateLayer
     stateLayer.setStyle(function(feature) {
-        console.log(feature['id'])
-        console.log(feature.getProperty('id'))
+        //console.log(feature['id'])
+        console.log(feature.f.gid)
         return {
-            fillColor: getColor(feature.getProperty('id')), // call function to get color for state based on the COLI (Cost of Living Index)
+            fillColor: getColor(feature.f.gid), // call function to get color for state based on the COLI (Cost of Living Index)
             fillOpacity: 0.8,
             strokeColor: '#b3b3b3',
             strokeWeight: 1,
@@ -78,17 +78,17 @@ app.controller('MainCtrl', function($scope, $http) {
     // returns a color based on the value given when the function is called
     function getColor(coli) {
         var colors = [
-            '#d1ccad',
-            '#c2c083',
-            '#cbd97c',
-            '#acd033',
-            '#89a844'
+            '#337DFF',
+            '#33FF55',
+            '#AC33FF',
+            '#FF7733',
+            '#33FFF9'
         ];
 
-        return coli >= 10 ? colors[4] :
-            coli > 15 ? colors[3] :
-            coli > 20 ? colors[2] :
-            coli > 25 ? colors[1] :
+        return coli <= 20 ? colors[4] :
+            30 < coli ? colors[3] :
+            40 < coli  ? colors[2] :
+            60 < coli  ? colors[1] :
             colors[0];
     }
 
