@@ -29,8 +29,10 @@ app.controller('MainCtrl', function($scope, $http) {
   stateLayer.loadGeoJson('ldn.geo.json');
   // Set and apply styling to the stateLayer
   stateLayer.setStyle(function(feature) {
+    console.log(feature['id'])
+    console.log(feature.getProperty('id'))
     return {
-      fillColor: getColor(feature.getProperty('COLI')), // call function to get color for state based on the COLI (Cost of Living Index)
+      fillColor: getColor(feature.getProperty('id')),  // call function to get color for state based on the COLI (Cost of Living Index)
       fillOpacity: 0.8,
       strokeColor: '#b3b3b3',
       strokeWeight: 1,
@@ -54,9 +56,14 @@ app.controller('MainCtrl', function($scope, $http) {
   // Adds an info window on click with in a state that includes the state name and COLI
   stateLayer.addListener('click', function(e) {
     console.log(e);
-    infoWindow.setContent('<div style="line-height:1.00;overflow:hidden;white-space:nowrap;">' +
-      e.feature.getProperty('NAME') + '<br> COLI: ' +
-      e.feature.getProperty('COLI') + '</div>');
+    console.log(e.feature.f);
+    infoWindow.setContent(
+      '<div style="line-height:1.00;overflow:hidden;white-space:nowrap;">' +
+      'Zone : <br>' +
+      '<br> gid: ' + e.feature.f.gid + 
+      '<br> geom: ' + e.feature.f.geom  +
+      '</div>'
+      );
 
     var anchor = new google.maps.MVCObject();
     anchor.set("position", e.latLng);
@@ -78,10 +85,10 @@ app.controller('MainCtrl', function($scope, $http) {
       '#89a844'
     ];
 
-    return coli >= 121 ? colors[4] :
-      coli > 110 ? colors[3] :
-      coli > 102.5 ? colors[2] :
-      coli > 100 ? colors[1] :
+    return coli >= 10 ? colors[4] :
+      coli > 15 ? colors[3] :
+      coli > 20 ? colors[2] :
+      coli > 25 ? colors[1] :
       colors[0];
   }
 
