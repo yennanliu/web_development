@@ -34,6 +34,10 @@ Frontend : Javescript library
 	- https://stackoverflow.com/questions/35905770/trigger-click-on-a-single-geojson-polygon-after-load
 
 
+- Add clicable polygon with id and lon/lat 
+	- https://blog.vizuri.com/how-to-create-a-choropleth-map-with-geojson-and-google-maps
+
+
 
 
 
