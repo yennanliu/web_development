@@ -81,7 +81,7 @@ app.controller('MainCtrl', function($scope, $http) {
         ['Coogee Beach', 51.5074, 0.1478, 5],
         ['Cronulla Beach', 51.5174, 0.1578, 3],
         ['Manly Beach', 51.5174, 0.1238, 2],
-        ['Maroubra Beach', 51.5134, 0.1298, 1]
+        ['Manly ef3wf', 50.5174, 0.1238, 2]
     ];
 
     var infowindow = new google.maps.InfoWindow();
@@ -150,10 +150,12 @@ app.controller('MainCtrl', function($scope, $http) {
     }
 
     // js list -> html table 
+    // https://stackoverflow.com/questions/15164655/generate-html-table-from-2d-javascript-array
     function createTable(tableData) {
     var table = document.createElement('table');
     var tableBody = document.createElement('tbody');
-
+    table.style.border = '1px solid black';
+    table.style.width  = '300px';
     tableData.forEach(function(rowData) {
     var row = document.createElement('tr');
 
