@@ -74,6 +74,24 @@ app.controller('MainCtrl', function($scope, $http) {
     // Final step here sets the stateLayer GeoJSON data onto the map
     stateLayer.setMap(vm.map);
 
+    // add simple markers 
+
+
+     var marker = new google.maps.Marker({
+          position: {lat: 51.5074 , lng: 0.1278},
+          map: vm.map,
+          title: 'Uluru (Ayers Rock)'
+         });
+
+
+     var marker = new google.maps.Marker({
+          position: {lat: 51.5374 , lng: 0.1178},
+          map: vm.map,
+          title: 'Uluru (Ayers Rock)'
+         });
+
+    // ---------------------- function  ----------------------  // 
+
 
     // returns a color based on the value given when the function is called
     function getColor(coli) {
