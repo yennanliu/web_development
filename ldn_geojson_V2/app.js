@@ -77,11 +77,14 @@ app.controller('MainCtrl', function($scope, $http) {
 
     // add for loop markers 
     var locations = [
-        ['Bondi Beach', 52.5074, 0.1278, 4],
-        ['Coogee Beach', 51.5074, 0.1478, 5],
-        ['Cronulla Beach', 51.5174, 0.1578, 3],
-        ['Manly Beach', 51.5174, 0.1238, 2],
-        ['Manly ef3wf', 50.5174, 0.1238, 2]
+        ['car a ', 51.5074, 0.1278, 4],
+        ['tesla b ', 51.5074, 0.1478, 5],
+        ['mycar', 51.5174, 0.1578, 3],
+        ['botvan', 51.5174, 0.1238, 2],
+        ['gvan', 51.5174, 0.1238, 2],
+        ['lavan', 51.1174, 0.138, 2],
+        ['uvan', 51.3174, 0.168, 2],
+        ['zvan', 51.6174, 0.188, 2]
     ];
 
     var infowindow = new google.maps.InfoWindow();
