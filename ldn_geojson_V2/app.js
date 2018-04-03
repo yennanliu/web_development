@@ -75,57 +75,42 @@ app.controller('MainCtrl', function($scope, $http) {
     stateLayer.setMap(vm.map);
 
     // add for loop markers 
-    var locations = [['Bondi Beach', 52.5074, 0.1278, 4],
-      ['Coogee Beach', 51.5074, 0.1478, 5],
-      ['Cronulla Beach', 51.5174, 0.1578, 3],
-      ['Manly Beach', 51.5174, 0.1238, 2],
-      ['Maroubra Beach', 51.5134, 0.1298, 1]
-        ];
-    /*
+    var locations = [
+        ['Bondi Beach', 52.5074, 0.1278, 4],
+        ['Coogee Beach', 51.5074, 0.1478, 5],
+        ['Cronulla Beach', 51.5174, 0.1578, 3],
+        ['Manly Beach', 51.5174, 0.1238, 2],
+        ['Maroubra Beach', 51.5134, 0.1298, 1]
+    ];
+
+    var infowindow = new google.maps.InfoWindow();
     var marker, i;
-    
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: vm.map
-      });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(vm.map,, marker);
-        }
-      })(marker, i));
-    } */
-
-        var infowindow = new google.maps.InfoWindow();
-        var marker, i;
-
-        for (i = 0; i < locations.length; i++) {  
+    for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: vm.map
-        //console.log(i)
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: vm.map
+            //console.log(i)
         });
 
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(vm.map, marker);
-        }
+            return function() {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(vm.map, marker);
+            }
         })(marker, i));
-        }
+    }
 
-    
-    for (i = 0; i < locations.length; i++) {  
+
+    for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][2], locations[i][1]),
-        map: vm.map
-        //console.log(i)
-        })};
-    
-     // add simple markers 
-     /*
+            position: new google.maps.LatLng(locations[i][2], locations[i][1]),
+            map: vm.map
+        })
+    };
+
+    // add simple markers 
+    /*
      var marker = new google.maps.Marker({
           position: {lat: 51.5074 , lng: 0.1278},
           map: vm.map,
@@ -154,8 +139,8 @@ app.controller('MainCtrl', function($scope, $http) {
 
         return coli <= 20 ? colors[4] :
             30 < coli ? colors[3] :
-            40 < coli  ? colors[2] :
-            60 < coli  ? colors[1] :
+            40 < coli ? colors[2] :
+            60 < coli ? colors[1] :
             colors[0];
     }
 
