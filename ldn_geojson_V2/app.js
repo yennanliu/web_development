@@ -74,6 +74,7 @@ app.controller('MainCtrl', function($scope, $http) {
     // Final step here sets the stateLayer GeoJSON data onto the map
     stateLayer.setMap(vm.map);
 
+
     // add for loop markers 
     var locations = [
         ['Bondi Beach', 52.5074, 0.1278, 4],
@@ -109,6 +110,10 @@ app.controller('MainCtrl', function($scope, $http) {
         })
     };
 
+    // add html table 
+    createTable(locations)
+
+
     // add simple markers 
     /*
      var marker = new google.maps.Marker({
@@ -126,7 +131,7 @@ app.controller('MainCtrl', function($scope, $http) {
     */
     // ---------------------- function  ----------------------  // 
 
-
+    // color polygons with values 
     // returns a color based on the value given when the function is called
     function getColor(coli) {
         var colors = [
@@ -144,4 +149,24 @@ app.controller('MainCtrl', function($scope, $http) {
             colors[0];
     }
 
+    // js list -> html table 
+    function createTable(tableData) {
+    var table = document.createElement('table');
+    var tableBody = document.createElement('tbody');
+
+    tableData.forEach(function(rowData) {
+    var row = document.createElement('tr');
+
+    rowData.forEach(function(cellData) {
+      var cell = document.createElement('td');
+      cell.appendChild(document.createTextNode(cellData));
+      row.appendChild(cell);
+    });
+
+    tableBody.appendChild(row);
+    });
+
+    table.appendChild(tableBody);
+    document.body.appendChild(table);
+    }
 });
