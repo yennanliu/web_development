@@ -152,23 +152,23 @@ app.controller('MainCtrl', function($scope, $http) {
     // js list -> html table 
     // https://stackoverflow.com/questions/15164655/generate-html-table-from-2d-javascript-array
     function createTable(tableData) {
-    var table = document.createElement('table');
-    var tableBody = document.createElement('tbody');
-    table.style.border = '1px solid black';
-    table.style.width  = '300px';
-    tableData.forEach(function(rowData) {
-    var row = document.createElement('tr');
+        var table = document.createElement('table');
+        var tableBody = document.createElement('tbody');
+        table.style.border = '1px solid black';
+        table.style.width = '300px';
+        tableData.forEach(function(rowData) {
+            var row = document.createElement('tr');
 
-    rowData.forEach(function(cellData) {
-      var cell = document.createElement('td');
-      cell.appendChild(document.createTextNode(cellData));
-      row.appendChild(cell);
-    });
+            rowData.forEach(function(cellData) {
+                var cell = document.createElement('td');
+                cell.appendChild(document.createTextNode(cellData));
+                row.appendChild(cell);
+            });
 
-    tableBody.appendChild(row);
-    });
+            tableBody.appendChild(row);
+        });
 
-    table.appendChild(tableBody);
-    document.body.appendChild(table);
+        table.appendChild(tableBody);
+        document.body.appendChild(table);
     }
 });
