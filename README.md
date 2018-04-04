@@ -5,7 +5,7 @@ Backend : Python web framework
 - Flask
 - Django
 
-Frontend : Javescript library
+Frontend : Javascript library
 - D3.js
 - leafletjs
 - Highchart
