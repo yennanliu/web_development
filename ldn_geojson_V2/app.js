@@ -102,7 +102,7 @@ app.controller('MainCtrl', function($scope, $http) {
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
                 infowindow.setContent('car : ' + String(locations[i][0])+ '<br>'
-                                      + 'val1 : ' + String(locations[i][4]));
+                                      + 'val1 : ' + String(locations[i][3]));
                 infowindow.open(vm.map, marker);
             }
         })(marker, i));
