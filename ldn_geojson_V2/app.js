@@ -33,7 +33,7 @@ app.controller('MainCtrl', function($scope, $http) {
         //console.log(feature['id'])
         console.log(feature.f.gid)
         return {
-            fillColor: getColor(feature.f.gid), // call function to get color for state based on the COLI (Cost of Living Index)
+            fillColor: getColor(Math.random(feature.f.gid)*80), // call function to get color for state based on the COLI (Cost of Living Index)
             fillOpacity: 0.8,
             strokeColor: '#b3b3b3',
             strokeWeight: 1,
