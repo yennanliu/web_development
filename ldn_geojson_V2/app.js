@@ -159,14 +159,19 @@ app.controller('MainCtrl', function($scope, $http) {
         var table = document.createElement('table');
         var tableBody = document.createElement('tbody');
         table.style.border = '1px solid black';
-        table.style.width = '300px';
+        table.style.width = '500px';
+        table.style.height = '300px';
+        table.style.margin = '-400px 0px 0px 800px';
         tableData.forEach(function(rowData) {
             var row = document.createElement('tr');
 
             rowData.forEach(function(cellData) {
                 var cell = document.createElement('td');
+                // modify table style 
+                cell.style.color="red";
                 cell.appendChild(document.createTextNode(cellData));
                 row.appendChild(cell);
+
             });
 
             tableBody.appendChild(row);
