@@ -34,6 +34,7 @@ def sqlite_2_array(db_name):
 
 
 def sqlite_2_json(db_name):
+	# http://www.cdotson.com/2014/06/generating-json-documents-from-sqlite-databases-in-python/
 	connection = sqlite3.connect(db_name)
 	connection.row_factory = dict_factory
 	cursor = connection.cursor()
@@ -45,7 +46,7 @@ def sqlite_2_json(db_name):
 	return results
 
 
-	
+
 
 def dict_factory(cursor, row):
     d = {}
