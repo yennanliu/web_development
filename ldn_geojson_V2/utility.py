@@ -1,7 +1,7 @@
 # python 3 
 import csv
 import sqlite3
-
+import json
 
 # --------------------
 
@@ -43,6 +43,9 @@ def sqlite_2_json(db_name):
 	results = cursor.fetchall()
 	connection.close()
 	print (results)
+	# save output to json 
+	with open('car_data.json', 'w') as outfile:
+		json.dump(results, outfile)
 	return results
 
 
@@ -65,6 +68,13 @@ if __name__ == '__main__':
 	sqlite_2_array('car_data.db')
 	print ('----------------')
 	sqlite_2_json('car_data.db')
+
+
+
+
+
+
+
 
 
 
