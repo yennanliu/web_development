@@ -118,6 +118,8 @@ app.controller('MainCtrl', function($scope, $http) {
 
     // add html table 
     createTable(locations)
+    // load json file
+    loaded_json = read_json_file()
 
 
     // add simple markers 
@@ -182,4 +184,31 @@ app.controller('MainCtrl', function($scope, $http) {
         table.appendChild(tableBody);
         document.body.appendChild(table);
     }
+
+    // load json file 
+    // https://stackoverflow.com/questions/6813114/how-can-i-load-jquery-if-it-is-not-already-loaded/42013103#42013103
+    function read_json_file() {
+    //Do stuff with jQuery
+    loaded_json = jQuery.getJSON('./car_data.json')
+    console.log(loaded_json)
+    return loaded_json
+    }
+
+    if(typeof jQuery=='undefined') {
+        var headTag = document.getElementsByTagName("head")[0];
+        var jqTag = document.createElement('script');
+        jqTag.type = 'text/javascript';
+        jqTag.src = 'jquery.js';
+        jqTag.onload = read_json_file;
+        headTag.appendChild(jqTag);
+    } else {
+         read_json_file();
+    }
+
+
+    // ---------------------- function  ----------------------  // 
+
+
+
+
 });
