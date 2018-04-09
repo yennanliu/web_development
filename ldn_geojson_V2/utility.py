@@ -1,8 +1,11 @@
 # python 3 
-
-
 import csv
 import sqlite3
+
+
+# --------------------
+
+
 
 def csv_2_array(file):
 	with open(file, 'r') as f:
@@ -24,15 +27,43 @@ def sqlite_2_array(db_name):
 	# tranform python sqlite3 output from  tuple to array 
 	# https://stackoverflow.com/questions/2854011/get-a-list-of-field-values-from-pythons-sqlite3-not-tuples-representing-rows
 	output = list(c.execute(sql_get_car_date).fetchall())
+	conn.close()
 	print (output)
 	return output
 
 
 
+def sqlite_2_json(db_name):
+	connection = sqlite3.connect(db_name)
+	connection.row_factory = dict_factory
+	cursor = connection.cursor()
+	cursor.execute("select * from car_data")
+	# fetch all or one we'll go for all.
+	results = cursor.fetchall()
+	connection.close()
+	print (results)
+	return results
+
+
+	
+
+def dict_factory(cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
+ 
+
+# --------------------
+
+	 
+
 
 if __name__ == '__main__':
 	#csv_2_array('car_data.csv')
 	sqlite_2_array('car_data.db')
+	print ('----------------')
+	sqlite_2_json('car_data.db')
 
 
 
