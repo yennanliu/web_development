@@ -27,7 +27,8 @@ app.controller('MainCtrl', function($scope, $http) {
     // Create the state data layer and load the GeoJson Data
     var stateLayer = new google.maps.Data();
     //stateLayer.loadGeoJson('https://gist.githubusercontent.com/dmarg/b2959e771ae680acbc95/raw/815a03f55d028dace4371c27d0b787ca0f2f2b5d/states.json');
-    stateLayer.loadGeoJson('ldn.geo.json');
+    //stateLayer.loadGeoJson('ldn.geo.json');
+    stateLayer.loadGeoJson('london_postcodes.geo.json');
     // Set and apply styling to the stateLayer
     stateLayer.setStyle(function(feature) {
         //console.log(feature['id'])
@@ -77,6 +78,7 @@ app.controller('MainCtrl', function($scope, $http) {
 
 
     // add for loop markers 
+    
     var locations = [
         ['car_name', 'lon','lat','val1',  'val2'], 
         ['car a ', 51.43929, -0.103417, 4,  10],
@@ -88,6 +90,11 @@ app.controller('MainCtrl', function($scope, $http) {
         ['uvan', 51.43929, -0.123417, 2, 8],
         ['zvan', 51.439996, -0.1679940, 2, 9]
     ];
+    
+
+    // load json file
+    //var load_json_data = read_json_file()
+    //var locations = load_json_data['responseJSON']
 
     var infowindow = new google.maps.InfoWindow();
     var marker, i;
@@ -118,8 +125,6 @@ app.controller('MainCtrl', function($scope, $http) {
 
     // add html table 
     createTable(locations)
-    // load json file
-    loaded_json = read_json_file()
 
 
     // add simple markers 
