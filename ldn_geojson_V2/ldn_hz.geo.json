@@ -9,7 +9,7 @@
         "stroke-opacity": 1,
         "fill": "#00ff40",
         "fill-opacity": 0.5,
-        "Name": "Interparking Grand place"
+        "Name": "Islington"
       },
       "geometry": {
         "type": "Polygon",
@@ -24,7 +24,7 @@
         "stroke-opacity": 1,
         "fill": "#00ff40",
         "fill-opacity": 0.5,
-        "Name ": "Interparking ecuyer"
+        "Name ": "Waltham Forest"
       },
       "geometry": {
         "type": "Polygon",
@@ -39,7 +39,7 @@
         "stroke-opacity": 1,
         "fill": "#00ff40",
         "fill-opacity": 0.5,
-        "Name": "Interparking monaie"
+        "Name": "Lewisham"
       },
       "geometry": {
         "type": "Polygon",
@@ -54,7 +54,7 @@
         "stroke-opacity": 1,
         "fill": "#00ff40",
         "fill-opacity": 0.5,
-        "Name": "Interparking"
+        "Name": "Lambeth"
       },
       "geometry": {
         "type": "Polygon",
@@ -69,7 +69,7 @@
         "stroke-opacity": 1,
         "fill": "#00ff40",
         "fill-opacity": 0.5,
-        "Name": "interparking botanique"
+        "Name": "Hackney"
       },
       "geometry": {
         "type": "Polygon",
@@ -84,7 +84,7 @@
         "stroke-opacity": 1,
         "fill": "#00ff40",
         "fill-opacity": 0.5,
-        "Name": "Interparking Rogier"
+        "Name": "Tower Hamlets"
       },
       "geometry": {
         "type": "Polygon",
@@ -99,7 +99,7 @@
         "stroke-opacity": 1,
         "fill": "#00ff00",
         "fill-opacity": 0.5,
-        "Name": "interparking Loi"
+        "Name": "Merton"
       },
       "geometry": {
         "type": "Polygon",
@@ -114,7 +114,7 @@
         "stroke-opacity": 1,
         "fill": "#00ff40",
         "fill-opacity": 0.5,
-        "Name": "Interparking deux portes"
+        "Name": "Heathrow T5"
       },
       "geometry": {
         "type": "Polygon",
@@ -129,7 +129,7 @@
         "stroke-opacity": 1,
         "fill": "#00ff40",
         "fill-opacity": 0.5,
-        "Name": "Interparking Louize"
+        "Name": "Southwark"
       },
       "geometry": {
         "type": "Polygon",
