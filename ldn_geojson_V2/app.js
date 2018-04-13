@@ -212,6 +212,13 @@ app.controller('MainCtrl', function($scope, $http) {
          read_json_file();
     }
 
+    function get_loaded_data(){
+        // https://stackoverflow.com/questions/11813806/javascript-get-a-functions-variables-value-within-another-function
+        read_json_file()
+        output = loaded_json;
+        alert(output)
+    }
+
 
     // ---------------------- function  ----------------------  // 
 
