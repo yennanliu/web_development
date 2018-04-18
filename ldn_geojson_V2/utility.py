@@ -44,7 +44,7 @@ def sqlite_2_json(db_name):
 	connection.close()
 	print (results)
 	# save output to json 
-	with open('car_data.json', 'w') as outfile:
+	with open('car_data.js', 'w') as outfile:
 		json.dump(results, outfile)
 	return results
 
