@@ -95,8 +95,14 @@ app.controller('MainCtrl', function($scope, $http) {
     
 
     // load json file
+    // --------------------------------------------
+
     //var load_json_data = read_json_file()
     //var locations = load_json_data['responseJSON']
+    loaded_json = read_json_file()
+
+    // --------------------------------------------
+
 
     var infowindow = new google.maps.InfoWindow();
     var marker, i;
@@ -196,6 +202,7 @@ app.controller('MainCtrl', function($scope, $http) {
     // https://stackoverflow.com/questions/6813114/how-can-i-load-jquery-if-it-is-not-already-loaded/42013103#42013103
     function read_json_file() {
     //Do stuff with jQuery
+    var loaded_json
     loaded_json = jQuery.getJSON('./car_data.json')
     console.log(loaded_json)
     return loaded_json
