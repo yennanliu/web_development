@@ -2,7 +2,11 @@
 
 <ul>
   <li ng-repeat="x in names">
-    {{ x.car_name + ', ' + x.lon +','+x.lat + ','+x.val1 }}
+    {{ x.car_name + ',' + x.val1 }}
+    {{ x.lon }}
+    {{ x.lat }}
+    {{ x.car_name | uppercase}}
+     {{ ( x.val1 * 9)  }}
   </li>
 </ul>
 
