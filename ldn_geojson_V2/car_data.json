@@ -1,1 +1,22 @@
-[{"lat": "0.1278", "car_name": "car_a", "val2": "10", "val1": "4", "lon": "51.5074"}, {"lat": "0.1478", "car_name": "car_b", "val2": "1", "val1": "5", "lon": "51.5074"}, {"lat": "0.1578", "car_name": "mycar", "val2": "10", "val1": "3", "lon": "51.5174"}, {"lat": "0.1238", "car_name": "botvan", "val2": "5", "val1": "2", "lon": "51.5174"}, {"lat": "0.1238", "car_name": "gvan", "val2": "4", "val1": "2", "lon": "51.5174"}, {"lat": "0.138", "car_name": "lavan", "val2": "7", "val1": "2", "lon": "51.1174"}, {"lat": "0.168", "car_name": "uvan", "val2": "9", "val1": "2", "lon": "51.3174"}, {"lat": "0.188", "car_name": "zvan", "val2": "11", "val1": "2", "lon": "51.6174"}]
+{
+    "sites": [
+        {
+            "car_name": "car_a",
+            "lat": 51.5074,
+            "lon": 0.1278,
+            "val1": 5
+        },
+         {
+            "car_name": "car_b",
+            "lat": 51.5174,
+            "lon": 0.1478,
+            "val1": 4
+        },
+                {
+            "car_name": "car_c",
+            "lat": 51.5674,
+            "lon": 0.1288,
+            "val1": 10
+        }
+    ]
+}

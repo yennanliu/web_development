@@ -1,9 +1,9 @@
 {
     "sites": [
         {
-            "Name": "菜鸟教程",
-            "Url": "www.runoob.com",
-            "Country": "CN"
+            "Name": "geojson",
+            "Url": "www.geojson.io",
+            "Country": "US"
         },
         {
             "Name": "Google",
@@ -15,10 +15,10 @@
             "Url": "www.facebook.com",
             "Country": "USA"
         },
-        {
-            "Name": "微博",
-            "Url": "www.weibo.com",
-            "Country": "CN"
+                {
+            "Name": "GITHUB",
+            "Url": "www.github.com",
+            "Country": "US"
         }
     ]
 }

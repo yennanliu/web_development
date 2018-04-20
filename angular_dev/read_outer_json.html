@@ -2,7 +2,7 @@
 
 <ul>
   <li ng-repeat="x in names">
-    {{ x.Name + ', ' + x.Country }}
+    {{ x.Name + ', ' + x.Country + ',' + x.Url }}
   </li>
 </ul>
 
@@ -18,7 +18,7 @@ app.controller('siteCtrl', function($scope, $http) {
 	}).then(function successCallback(response) {
 			$scope.names = response.data.sites;
 		}, function errorCallback(response) {
-			// 请求失败执行代码
+			// run above code when request fail
 	});
   
 });

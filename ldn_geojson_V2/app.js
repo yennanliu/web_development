@@ -28,8 +28,9 @@ app.controller('MainCtrl', function($scope, $http) {
     var stateLayer = new google.maps.Data();
     //stateLayer.loadGeoJson('https://gist.githubusercontent.com/dmarg/b2959e771ae680acbc95/raw/815a03f55d028dace4371c27d0b787ca0f2f2b5d/states.json');
     //stateLayer.loadGeoJson('ldn.geo.json');
-    stateLayer.loadGeoJson('london_postcodes.geo.json');
+    //stateLayer.loadGeoJson('london_postcodes.geo.json');
     //stateLayer.loadGeoJson('ldn_hz.geo.json');
+    stateLayer.loadGeoJson('ldn_fl_hhz.geo.json');
     // Set and apply styling to the stateLayer
     stateLayer.setStyle(function(feature) {
         //console.log(feature['id'])
@@ -233,3 +234,17 @@ app.controller('MainCtrl', function($scope, $http) {
 
 
 });
+
+
+app.controller('siteCtrl', function($scope, $http) {
+    $http({
+        method: 'GET',
+        url: ' car_data.json'
+    }).then(function successCallback(response) {
+            $scope.names = response.data.sites;
+        }, function errorCallback(response) {
+           // run above code when request fail
+    });      
+});
+
+
