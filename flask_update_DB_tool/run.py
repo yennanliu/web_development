@@ -11,6 +11,7 @@ from wtforms.validators import Required
 from flask.ext.sqlalchemy import SQLAlchemy
 import pandas as pd
 import os
+import subprocess
 
 # UDF 
 from controller import *
@@ -34,40 +35,61 @@ except:
 # flask app 
 @app.route('/')
 def hello():
-    #return "hello world" 
-    return render_template('base.html')
+	#return "hello world" 
+	return render_template('base.html')
+
 
 
 
 # ---------- access request tool  ----------
 @app.route('/access_request/', methods=['GET', 'POST'])
 def access_request_main():
-    data = pd.DataFrame({'index': [], 'name': [], 'url':[]})
-    return render_template('access_request.html',data=data)
+	data = pd.DataFrame({'index': [], 'name': [], 'url':[]})
+	return render_template('access_request.html',data=data)
 
 
 @app.route('/access_request/<member_id>', methods=['GET', 'POST'])
 def access_request(member_id):
-    #data = get_toy_data(q_)
-    data = get_access_request_report(member_id, db_url)
-    print (' -------- query excel data -------- : ' ,  data )
-    path = 'access_req_report_sample.xlsx'
-    return send_file(path, as_attachment=True)
+	print (' member_id : ', member_id )
+	data = get_access_request_report(member_id, db_url)
+	print (' -------- query excel data -------- : ' ,  data )
+	path = 'access_req_report_sample.xlsx'
+	return send_file(path, as_attachment=True)
+
+
+
+# ---------- deletion request tool  ----------
+@app.route('/deletion_request/', methods=['GET', 'POST'])
+def deletion_request_main():
+	data = pd.DataFrame({'index': [], 'name': [], 'url':[]})
+	return render_template('deletion_request.html',data=data)
+
+
+@app.route('/deletion_request/<member_id>', methods=['GET', 'POST'])
+def deletion_request(member_id):
+	print (' member_id : ', member_id )
+	#subprocess.call(["bash deletion_request.sh ", member_id])
+	os.system("bash deletion_request.sh {}".format(member_id))
+	return render_template('deletion_request.html')
+
+
 
 
 # ---------- report tool  ----------
 @app.route('/tool_report/', methods=['GET', 'POST'])
 def report_main():
-    data = pd.DataFrame({'index': [], 'name': [], 'url':[]})
-    return render_template('report.html',data=data)
+	data = pd.DataFrame({'index': [], 'name': [], 'url':[]})
+	return render_template('report.html',data=data)
 
 
 @app.route('/tool_report/<q_>', methods=['GET', 'POST'])
 def report(q_):
-    #data = get_toy_data(q_)
-    data = get_DB_data(q_, db_url)
-    print (data)
-    return render_template('report.html',data=data)
+	#data = get_toy_data(q_)
+	data = get_DB_data(q_, db_url)
+	print (data)
+	return render_template('report.html',data=data)
+
+
 
 
 
