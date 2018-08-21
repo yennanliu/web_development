@@ -34,9 +34,9 @@ except:
 
 # flask app 
 @app.route('/')
-def hello():
+def home_():
 	#return "hello world" 
-	return render_template('base.html')
+	return render_template('home.html')
 
 
 
