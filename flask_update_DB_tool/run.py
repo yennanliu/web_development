@@ -40,14 +40,32 @@ def hello():
     return render_template('base.html')
 
 
+# ---------- access request tool  ----------
+@app.route('/access_request/', methods=['GET', 'POST'])
+def access_request_main():
+    data = pd.DataFrame({'index': [], 'name': [], 'url':[]})
+    return render_template('report.html',data=data)
+
+
+@app.route('/access_request/<member_id>', methods=['GET', 'POST'])
+def access_request(member_id):
+    #data = get_toy_data(q_)
+    data = get_DB_data(member_id, db_url)
+    print (data)
+    return render_template('report.html',data=data)
+
+
+
+
+# ---------- report tool  ----------
 @app.route('/tool_report/', methods=['GET', 'POST'])
-def keyword_main():
+def report_main():
     data = pd.DataFrame({'index': [], 'name': [], 'url':[]})
     return render_template('report.html',data=data)
 
 
 @app.route('/tool_report/<q_>', methods=['GET', 'POST'])
-def keyword(q_):
+def report(q_):
     #data = get_toy_data(q_)
     data = get_DB_data(q_, db_url)
     print (data)
