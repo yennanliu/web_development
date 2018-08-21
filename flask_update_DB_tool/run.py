@@ -36,7 +36,8 @@ except:
 
 @app.route('/')
 def hello():
-    return "hello world" 
+    #return "hello world" 
+    return render_template('base.html')
 
 
 @app.route('/tool_report/', methods=['GET', 'POST'])
