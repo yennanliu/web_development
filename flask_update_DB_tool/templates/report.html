@@ -61,17 +61,9 @@
    </body>
 </html>
 
-
-
         <h1>RESULTS</h1>
         {% if not error %}
         <table border=1 cellpadding=7>
-        <!-- <tr>
-                <th>index</th>
-                <th>name</th>
-                <th>url</th>
-              </tr>
-        -->
             <tr>
             {% for col in data.columns %}
                 <td>{{ col }}</td>
@@ -79,11 +71,10 @@
             </tr>
 
             {% for i, j in data.iterrows() %}
-            <tr> <td>{{loop.index}}</td>
-                <td>{{ j['date']}}</td>
-                <td>{{ j['count']}}</td>
-                
-                
+            <tr> 
+              {% for col in data.columns %}
+                <td>{{ j[col]}}</td>
+                {% endfor %}                                
             </tr>
             {% endfor %}
         </table>
