@@ -66,6 +66,7 @@ def get_access_request_report(memeber_id,db_url):
     df_member_booking.to_excel(writer,sheet_name='df_member_booking',startrow=0, startcol=0)
     df_member_trips.to_excel(writer,sheet_name='df_member_trips',startrow=0, startcol=0)
     df_member_transactions.to_excel(writer,sheet_name='df_member_transactions',startrow=0, startcol=0)
+    #return writer 
 
 
 
