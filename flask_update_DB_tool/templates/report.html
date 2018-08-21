@@ -66,15 +66,22 @@
         <h1>RESULTS</h1>
         {% if not error %}
         <table border=1 cellpadding=7>
-            <tr>
+        <!-- <tr>
                 <th>index</th>
                 <th>name</th>
                 <th>url</th>
+              </tr>
+        -->
+            <tr>
+            {% for col in data.columns %}
+                <td>{{ col }}</td>
+            {% endfor %}
             </tr>
-            {% for count, name in data['name'].items() %}
+
+            {% for i, j in data.iterrows() %}
             <tr> <td>{{loop.index}}</td>
-                <td>{{ name }}</td>
-                <td>{{data['url'].ix[count]}}</td>
+                <td>{{ j['date']}}</td>
+                <td>{{ j['count']}}</td>
                 
                 
             </tr>
