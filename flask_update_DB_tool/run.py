@@ -23,6 +23,13 @@ manager = Manager(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
+try:
+	db_url = os.environ['db_url']
+	print ('db_url : ' , db_url)
+except:
+	print ('no db_url offer')
+
+
 
 # flask app 
 
@@ -40,9 +47,16 @@ def keyword_main():
 
 @app.route('/tool_report/<q_>', methods=['GET', 'POST'])
 def keyword(q_):
-    data = get_toy_data(q_)
+    #data = get_toy_data(q_)
+    data = get_DB_data(q_, db_url)
     print (data)
     return render_template('report.html',data=data)
+
+
+
+
+
+
 
 
 
@@ -51,3 +65,13 @@ def keyword(q_):
 # run flask server 
 if __name__ == '__main__':
    app.run(debug = True)
+
+
+
+
+
+
+
+
+
+
