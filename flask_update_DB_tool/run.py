@@ -105,6 +105,10 @@ def getPlotCSV():
                  "attachment; filename=myplot.csv"})
 
 
+@app.route('/dev/')
+def dev_func():
+	return render_template('404.html')
+
 
 
 # ---------- run flask server  ----------
