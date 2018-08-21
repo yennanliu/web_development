@@ -43,7 +43,7 @@ def hello():
 @app.route('/access_request/', methods=['GET', 'POST'])
 def access_request_main():
     data = pd.DataFrame({'index': [], 'name': [], 'url':[]})
-    return render_template('report.html',data=data)
+    return render_template('access_request.html',data=data)
 
 
 @app.route('/access_request/<member_id>', methods=['GET', 'POST'])
