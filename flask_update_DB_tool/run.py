@@ -1,7 +1,7 @@
 
 
 # OP 
-from flask import Flask, render_template, session, redirect, url_for, flash,request
+from flask import Flask, render_template, session, redirect, url_for, flash,request, Response,send_file
 from flask.ext.script import Manager
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.moment import Moment
@@ -32,12 +32,11 @@ except:
 
 
 # flask app 
-
-
 @app.route('/')
 def hello():
     #return "hello world" 
     return render_template('base.html')
+
 
 
 # ---------- access request tool  ----------
@@ -51,10 +50,9 @@ def access_request_main():
 def access_request(member_id):
     #data = get_toy_data(q_)
     data = get_access_request_report(member_id, db_url)
-    print (data)
-    return render_template('report.html',data=data)
-
-
+    print (' -------- query excel data -------- : ' ,  data )
+    path = 'access_req_report_sample.xlsx'
+    return send_file(path, as_attachment=True)
 
 
 # ---------- report tool  ----------
@@ -73,15 +71,21 @@ def report(q_):
 
 
 
+# ---------- dev   ----------
+
+@app.route("/getPlotCSV")
+def getPlotCSV():
+    csv = '1,2,3\n4,5,6\n'
+    return Response(
+        csv,
+        mimetype="text/csv",
+        headers={"Content-disposition":
+                 "attachment; filename=myplot.csv"})
 
 
 
 
-
-
-
-
-# run flask server 
+# ---------- run flask server  ----------
 if __name__ == '__main__':
    app.run(debug = True)
 
