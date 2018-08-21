@@ -50,7 +50,7 @@ def access_request_main():
 @app.route('/access_request/<member_id>', methods=['GET', 'POST'])
 def access_request(member_id):
     #data = get_toy_data(q_)
-    data = get_DB_data(member_id, db_url)
+    data = get_access_request_report(member_id, db_url)
     print (data)
     return render_template('report.html',data=data)
 
