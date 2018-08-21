@@ -2,13 +2,14 @@
 
 # OP 
 from flask import Flask, render_template, session, redirect, url_for, flash,request, Response,send_file
-from flask.ext.script import Manager
-from flask.ext.bootstrap import Bootstrap
-from flask.ext.moment import Moment
-from flask.ext.wtf import Form
+#from flask.ext.script import Manager
+from flask_script import Manager
+from flask_bootstrap import Bootstrap
+from flask_moment import Moment
+from flask_wtf import Form
+from flask_sqlalchemy import SQLAlchemy
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import Required
-from flask.ext.sqlalchemy import SQLAlchemy
 import pandas as pd
 import os
 import subprocess
