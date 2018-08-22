@@ -13,6 +13,7 @@ from wtforms.validators import Required
 import pandas as pd
 import os
 import subprocess
+from subprocess import PIPE, run, Popen
 import shlex
 
 # UDF 
@@ -79,8 +80,10 @@ def deletion_request(member_id):
 	print (' member_id : ', member_id )
 	#subprocess.call(["bash deletion_request.sh ", member_id])
 	try : 
-		#os.system("bash deletion_request.sh {}".format(member_id))
-		subprocess.call(shlex.split("bash deletion_request.sh {} ".format(member_id)))
+		os.system("bash deletion_request.sh {}".format(member_id))
+		#process = subprocess.call(shlex.split("bash deletion_request.sh {} ".format(member_id)))
+		#py2output = subprocess.check_call(['deletion_request.sh {}'.format(member_id)], shell=True)
+		#print ('py2output : ', py2output)
 		return render_template('deletion_request.html')
 	except Exception as e:
 		flash('job run FAILED ')
