@@ -18,16 +18,19 @@ def get_toy_data(input):
 
 
 def get_DB_data(sql, db_url):
-    try:
-        engine = create_engine(db_url)
-        print (sql)
-        df = pd.read_sql(sql=sql, con= engine)
-        print (df.head())
-        return df 
-        print("extract data ok")
-    except Exception as e:
-        print (e)
-        print ('fail to get data from db')
+	try:
+		engine = create_engine(db_url)
+		print (sql)
+		if sql.split(' ')[0].lower() != 'select' :
+			print ('invalid sql')
+			return pd.DataFrame({'msg': ['invalid sql']})
+		df = pd.read_sql(sql=sql, con= engine)
+		print (df.head())
+		return df 
+		print("extract data ok")
+	except Exception as e:
+		print (e)
+		print ('fail to get data from db')
 
 
 
