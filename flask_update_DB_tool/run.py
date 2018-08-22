@@ -45,17 +45,24 @@ def home_():
 # ---------- access request tool  ----------
 @app.route('/access_request/', methods=['GET', 'POST'])
 def access_request_main():
-	data = pd.DataFrame({'index': [], 'name': [], 'url':[]})
+	data = pd.DataFrame({'result': []})
 	return render_template('access_request.html',data=data)
 
 
 @app.route('/access_request/<member_id>', methods=['GET', 'POST'])
 def access_request(member_id):
 	print (' member_id : ', member_id )
-	data = get_access_request_report(member_id, db_url)
-	print (' -------- query excel data -------- : ' ,  data )
-	path = 'access_req_report_sample.xlsx'
-	return send_file(path, as_attachment=True)
+	try:
+		get_access_request_report(member_id, db_url)
+		path = 'access_req_report_sample.xlsx'
+		#flash('job run OK !')
+		return send_file(path, as_attachment=True)
+	except Exception as e:
+		flash('job run FAILED ')
+		return redirect(url_for('access_request_main'))
+	#return redirect(url_for('access_request_main'))
+	return render_template('access_request.html')
+
 
 
 

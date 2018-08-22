@@ -56,23 +56,16 @@
 
 </html>
 
-<h1>RESULTS</h1> {% if not error %}
-<table border=1 cellpadding=7>
-    <tr>
-        {% for col in data.columns %}
-        <td>{{ col }}</td>
-        {% endfor %}
-    </tr>
-
-    {% for i, j in data.iterrows() %}
-    <tr>
-        {% for col in data.columns %}
-        <td>{{ j[col]}}</td>
-        {% endfor %}
-    </tr>
+<h1>RESULTS</h1> 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
     {% endfor %}
-</table>
-{% endif %}
+    </ul>
+  {% endif %}
+{% endwith %}
 </body>
 
 </html>
