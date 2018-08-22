@@ -56,9 +56,17 @@
 
 </html>
 
-<h1>RESULTS</h1> {% if not error %}
+<h1>RESULTS</h1> 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 
-{% endif %}
 </body>
 
 </html>
