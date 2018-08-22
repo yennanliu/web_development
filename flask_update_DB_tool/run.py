@@ -13,6 +13,7 @@ from wtforms.validators import Required
 import pandas as pd
 import os
 import subprocess
+import shlex
 
 # UDF 
 from controller import *
@@ -69,7 +70,7 @@ def access_request(member_id):
 # ---------- deletion request tool  ----------
 @app.route('/deletion_request/', methods=['GET', 'POST'])
 def deletion_request_main():
-	data = pd.DataFrame({'index': [], 'name': [], 'url':[]})
+	data = pd.DataFrame({'result': []})
 	return render_template('deletion_request.html',data=data)
 
 
@@ -77,8 +78,15 @@ def deletion_request_main():
 def deletion_request(member_id):
 	print (' member_id : ', member_id )
 	#subprocess.call(["bash deletion_request.sh ", member_id])
-	os.system("bash deletion_request.sh {}".format(member_id))
+	try : 
+		#os.system("bash deletion_request.sh {}".format(member_id))
+		subprocess.call(shlex.split("bash deletion_request.sh {} ".format(member_id)))
+		return render_template('deletion_request.html')
+	except Exception as e:
+		flash('job run FAILED ')
+		return redirect(url_for('deletion_request_main'))
 	return render_template('deletion_request.html')
+
 
 
 
