@@ -41,12 +41,12 @@
 
 <body>
     <div class="container">
-        <h1>Deletion Report Tool</h1>
+        <h1>Deletion Request Tool</h1>
         <br>
         <form method="post">
-            <input type="text" id="keyword" placeholder="keyword" name="keyword" value="{{
+            <input type="text" id="keyword" placeholder="member_id" name="keyword" value="{{
                request.form.username }}">
-            <input class="btn btn-default" value="Search" onclick="window.location.href=$('#keyword').val()">
+            <input class="btn btn-default" value="Delete Member infrom." onclick="window.location.href=$('#keyword').val()">
         </form>
         {% if error %}
         <p class="error"><strong>Error:</strong> {{ error }}</p>
