@@ -35,16 +35,9 @@ $ python3 -m http.server
 ```
 
 ### Main project 
-
-- Visualize Ubike locations 
-	- https://github.com/yennanliu/web_development/tree/master/flask_ubike_view
-
-- Simple msg board let users leave/modify comments 
-	- https://github.com/yennanliu/web_development/tree/master/flask_msg_board
-
-- Visualize Singapore taxi locations 
-	- https://github.com/yennanliu/web_development/tree/master/flask_sg_taxi_view
+- Visualize Ubike locations : https://github.com/yennanliu/web_development/tree/master/flask_ubike_view
+- Simple msg board let users leave/modify comments : https://github.com/yennanliu/web_development/tree/master/flask_msg_board
+- Visualize Singapore taxi locations : https://github.com/yennanliu/web_development/tree/master/flask_sg_taxi_view
 
 ### Reference 
 * [Ref](https://github.com/yennanliu/web_development/blob/master/ref.md)
-
