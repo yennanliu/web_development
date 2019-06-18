@@ -1,7 +1,7 @@
 # web_development
 
 ## Part 1 : website development 
-
+```
 Backend : Python web framework 
 - Flask
 - Django
@@ -10,10 +10,9 @@ Frontend : Javascript library
 - D3.js
 - leafletjs
 - Highchart
-
+```
 
 ### Quick start
-
 ```bash
 # clone the repo
 $ git clone https://github.com/yennanliu/web_development.git
@@ -23,7 +22,6 @@ $ cd web_development
 $ python3 -m http.server
 # open the brower and visit default : http://localhost:8000/
 # click/nevigate the project sites
-
 ```
 
 ### Main project 
@@ -38,11 +36,9 @@ $ python3 -m http.server
 	- https://github.com/yennanliu/web_development/tree/master/flask_sg_taxi_view
 
 ## Part 2 : Backend development (web services)
-
 - Web API design/development 
 - DB design & integration 
 - 3rd party API integration
-
 
 ### Ref 
 
@@ -51,7 +47,6 @@ $ python3 -m http.server
 
 - Add event intereact with Google map polygon 
 	- https://stackoverflow.com/questions/35905770/trigger-click-on-a-single-geojson-polygon-after-load
-
 
 - Add clicable polygon with id and lon/lat 
 	- https://blog.vizuri.com/how-to-create-a-choropleth-map-with-geojson-and-google-maps
