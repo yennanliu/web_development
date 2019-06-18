@@ -1,5 +1,6 @@
 # web_development
 
+## Part 1 : website development 
 
 Backend : Python web framework 
 - Flask
@@ -11,7 +12,7 @@ Frontend : Javascript library
 - Highchart
 
 
-## Quick start
+### Quick start
 
 ```bash
 # clone the repo
@@ -25,9 +26,7 @@ $ python3 -m http.server
 
 ```
 
-
-## Main project 
-
+### Main project 
 
 - Visualize Ubike locations 
 	- https://github.com/yennanliu/web_development/tree/master/flask_ubike_view
@@ -38,9 +37,14 @@ $ python3 -m http.server
 - Visualize Singapore taxi locations 
 	- https://github.com/yennanliu/web_development/tree/master/flask_sg_taxi_view
 
+## Part 2 : Backend development (web services)
+
+- Web API design/development 
+- DB design & integration 
+- 3rd party API integration
 
 
-## Ref 
+### Ref 
 
 - Add multiple popup to Google map 
 	- https://www.taniarascia.com/google-maps-apis-for-multiple-locations/
@@ -54,8 +58,4 @@ $ python3 -m http.server
 
 - Connect App on AWS with update security group 
  	- https://drupal.stackexchange.com/questions/205941/how-to-fix-error-this-site-can-t-be-reached-for-a-site-installed-on-amazon
-
-
-
-
 
