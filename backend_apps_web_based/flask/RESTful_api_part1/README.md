@@ -90,6 +90,17 @@ Date: Wed, 19 Jun 2019 10:27:38 GMT
 
 ```
 
+```bash
+# UPDATE method 
+# dev 
+``` 
+
+```bash
+# DELETE method 
+$ curl -X DELETE -d 'product_id=4' http://0.0.0.0:5000/product/api/v1.0/products
+# dev 
+``` 
+
 ## Ref 
 - https://blog.taiker.space/python-shi-yong-python-he-flask-she-ji-restful-api/
 - https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
