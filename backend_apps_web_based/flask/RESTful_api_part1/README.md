@@ -56,6 +56,40 @@ Date: Wed, 19 Jun 2019 10:08:28 GMT
 
 ```
 
+```bash
+# POST method 
+$ curl -i -H "Content-Type: application/json" -X POST -d '{"title":"juice"}' http://0.0.0.0:5000/product/api/v1.0/products
+HTTP/1.0 201 CREATED
+Content-Type: application/json
+Content-Length: 378
+Server: Werkzeug/0.15.4 Python/3.6.4
+Date: Wed, 19 Jun 2019 10:27:38 GMT
+
+{
+  "product": [
+    {
+      "description": "this is an apple pie", 
+      "id": 1, 
+      "sold": false, 
+      "title": "apple pie"
+    }, 
+    {
+      "description": "a yammy chicken burger", 
+      "done": true, 
+      "id": 2, 
+      "title": "chicken burger"
+    }, 
+    {
+      "description": "", 
+      "id": 3, 
+      "sold": false, 
+      "title": "juice"
+    }
+  ]
+}
+
+```
+
 ## Ref 
 - https://blog.taiker.space/python-shi-yong-python-he-flask-she-ji-restful-api/
 - https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
