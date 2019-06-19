@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, abort 
+from flask import Flask, jsonify, abort, make_response 
 
 app = Flask(__name__)
 
@@ -6,6 +6,11 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return "Hello, World!"
+
+# handle error
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)
 
 # define the sample API data (hardcode)
 products = [
