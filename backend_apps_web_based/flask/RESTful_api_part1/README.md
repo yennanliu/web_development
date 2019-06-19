@@ -34,8 +34,28 @@ Date: Wed, 19 Jun 2019 09:50:14 GMT
   ]
 }
 
+```
+```bash 
+# GET with parameter
+$ curl -i http://0.0.0.0:5000/product/api/v1.0/products/2 
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 132
+Server: Werkzeug/0.15.4 Python/3.6.4
+Date: Wed, 19 Jun 2019 10:08:28 GMT
+
+{
+  "product": {
+    "description": "a yammy chicken burger", 
+    "done": true, 
+    "id": 2, 
+    "title": "chicken burger"
+  }
+}
+
 
 ```
+
 ## Ref 
 - https://blog.taiker.space/python-shi-yong-python-he-flask-she-ji-restful-api/
 - https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
