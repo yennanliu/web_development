@@ -92,6 +92,7 @@ Date: Wed, 19 Jun 2019 10:27:38 GMT
 
 ```bash
 # UPDATE method 
+# (update the "sold" status of product which with id =2 )
 $ curl -i -H "Content-Type: application/json" -X PUT -d '{"sold":false}' http://0.0.0.0:5000/product/api/v1.0/products/2
 
 HTTP/1.0 200 OK
@@ -113,8 +114,42 @@ Date: Thu, 20 Jun 2019 08:36:44 GMT
 
 ```bash
 # DELETE method 
-$ curl -X DELETE -d 'product_id=4' http://0.0.0.0:5000/product/api/v1.0/products
-# dev 
+# (delete product with id = 1 )
+$ curl -i -H "Content-Type: application/json" -X DELETE  http://0.0.0.0:5000/product/api/v1.0/products/1
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 21
+Server: Werkzeug/0.15.4 Python/3.6.4
+Date: Thu, 20 Jun 2019 08:42:02 GMT
+
+{
+  "result": true
+}
+
+# (delete product with id = 2)
+$ curl -i -H "Content-Type: application/json" -X DELETE  http://0.0.0.0:5000/product/api/v1.0/products/2
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 21
+Server: Werkzeug/0.15.4 Python/3.6.4
+Date: Thu, 20 Jun 2019 08:42:22 GMT
+
+{
+  "result": true
+}
+
+# show rest of the products 
+$ curl -i http://0.0.0.0:5000/product/api/v1.0/products
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 20
+Server: Werkzeug/0.15.4 Python/3.6.4
+Date: Thu, 20 Jun 2019 08:42:37 GMT
+
+{
+  "product": []
+}
+
 ``` 
 
 ## Ref 
