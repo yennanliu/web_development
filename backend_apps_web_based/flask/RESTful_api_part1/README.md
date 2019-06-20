@@ -1,4 +1,9 @@
-## Intro : RESTful API 
+## INTRO : RESTful API V1
+  - Simplest API built via flask, demo GET, POST, UPDATE, and DELETE method
+  - data is hard code (list of dictionary) 
+  - No authentication methods 
+
+## INTRO : RESTful API 
 |  HTTP method | Action | Example |
 | --- | -------- | ---- | 
 |Get| Obtain information about a resource | http://0.0.0.0:5000/product/api/v1.0/products <br>(retrieve product list) | 
@@ -7,6 +12,16 @@
 |Delete| Delete a resource | http://0.0.0.0:5000/product/api/v1.0/products/2 <br> (delete prodcut with id = 2 ) | 
 
 ## Quick start 
+``` bash
+# fork the project 
+# open 1 terminal run below commands 
+$ cd~ && git clone https://github.com/yennanliu/web_development.git
+$ cd~ && cd web_development/backend_apps_web_based/flask/RESTful_api_part1
+$ pip install -r requirements.txt && python app.py 
+
+# when the flask server run at local successfully, 
+# open the other terminal run the folloeing commands 
+```
 ```bash 
 # GET 
 $ curl -i http://0.0.0.0:5000/product/api/v1.0/products
