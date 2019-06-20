@@ -92,7 +92,23 @@ Date: Wed, 19 Jun 2019 10:27:38 GMT
 
 ```bash
 # UPDATE method 
-# dev 
+$ curl -i -H "Content-Type: application/json" -X PUT -d '{"sold":false}' http://0.0.0.0:5000/product/api/v1.0/products/2
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 133
+Server: Werkzeug/0.15.4 Python/3.6.4
+Date: Thu, 20 Jun 2019 08:36:44 GMT
+
+{
+  "product": {
+    "description": "a yammy chicken burger", 
+    "id": 2, 
+    "sold": false, 
+    "title": "chicken burger"
+  }
+}
+
 ``` 
 
 ```bash
