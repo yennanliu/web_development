@@ -1,10 +1,10 @@
 ## Intro : RESTful API 
-|  HTTP METHOD | ACTION | Example |
+|  HTTP method | Action | Example |
 | --- | -------- | ---- | 
-|Get| Obtain information about a resource |http://example.com/api/orders (retrieve order list) | 
-|Post| Create a new resource | http://example.com/api/orders (create a new order, from data provided with the request)| 
-|Put| Update a resource | http://example.com/api/orders/123 (update order #123, from data provided with the request) | 
-|Delete| Delete a resource | http://example.com/api/orders/123 (delete order #123) | 
+|Get| Obtain information about a resource | http://0.0.0.0:5000/product/api/v1.0/products (retrieve product list) | 
+|Post| Create a new resource | http://0.0.0.0:5000/product/api/v1.0/products (create a new order, from data provided with the request)| 
+|Put| Update a resource | http://0.0.0.0:5000/product/api/v1.0/products/2 (update product with id = 2, from data provided with the request) | 
+|Delete| Delete a resource | http://0.0.0.0:5000/product/api/v1.0/products/2 (delete prodcut with id = 2 ) | 
 
 ## Quick start 
 ```bash 
