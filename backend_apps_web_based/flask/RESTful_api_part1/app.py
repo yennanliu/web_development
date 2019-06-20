@@ -24,7 +24,7 @@ products = [
         'id': 2,
         'title': u'chicken burger',
         'description': u'a yammy chicken burger',
-        'done': True
+        'sold': True
     }
 ]
 
@@ -70,16 +70,16 @@ def update_product(product_id):
         abort(400)
     if 'description' in request.json and type(request.json['description']) is not unicode:
         abort(400)
-    if 'done' in request.json and type(request.json['done']) is not bool:
+    if 'sold' in request.json and type(request.json['sold']) is not bool:
         abort(400)
     product[0]['title'] = request.json.get('title', product[0]['title'])
     product[0]['description'] = request.json.get('description', product[0]['description'])
-    product[0]['done'] = request.json.get('done', product[0]['done'])
+    product[0]['sold'] = request.json.get('sold', product[0]['sold'])
     return jsonify({'product': product[0]})
 
 # DELETE method 
 # dev 
-@app.route('/product/api/v1.0/products/<int:product_id>', methods=['GET','POST','DELETE'])
+@app.route('/product/api/v1.0/products/<int:product_id>', methods=['DELETE'])
 def delete_product(product_id):
 	product = list(filter(lambda t : t['id'] ==  product_id, products))
 	if len(product) == 0:
