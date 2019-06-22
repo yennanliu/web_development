@@ -58,7 +58,6 @@ def create_product():
 	return jsonify({'product': products}), 201 
 
 # PUT method 
-# dev 
 @app.route('/product/api/v1.0/products/<int:product_id>', methods=['PUT'])
 def update_product(product_id):
     product = [product for product in products if product['id'] == product_id]
@@ -78,7 +77,6 @@ def update_product(product_id):
     return jsonify({'product': product[0]})
 
 # DELETE method 
-# dev 
 @app.route('/product/api/v1.0/products/<int:product_id>', methods=['DELETE'])
 def delete_product(product_id):
 	product = list(filter(lambda t : t['id'] ==  product_id, products))
