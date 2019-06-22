@@ -36,5 +36,21 @@ def get_product_with_parameter(product_id):
 			abort(404)
 		return jsonify({'product':result})
 
+# POST method 
+@app.route('/product/api/v1.0/products', methods=['POST'])
+def create_product():
+	with sqlite3.connect("database.db") as con:
+		cur = con.cursor()
+		cur.execute("SELECT count(*) FROM products;")
+		count = cur.fetchall()[0][0]
+		product = {'id': count,
+		'title': request.json['title'],
+		'description': request.json.get('description', ""),
+		'sold': False}
+		cur.execute("INSERT INTO products (id, title, description, sold) VALUES (?,?,?,?)",  (count, request.json['title'], request.json.get('description', ""), 'false'))
+		con.commit()
+		print ('Insert data OK')
+	return jsonify({'product': product}), 201 
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000, debug=True)
