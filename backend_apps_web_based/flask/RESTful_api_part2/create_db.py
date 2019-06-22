@@ -1,6 +1,5 @@
 import sqlite3
 
-
 def creat_db():
 	# create db 
 	conn = sqlite3.connect('database.db')
@@ -16,11 +15,9 @@ def creat_db():
 				cur.execute("INSERT INTO products (id, title, description, sold) VALUES (?,?,?,?)", (2, 'chicken burger', 'yammy chicken burger', 'true'))
 				con.commit()
 				print ('Insert data OK')
-
 	except Exception as e:
 		con.rollback()
 		print (str(e) + 'error within insert process')
-
 	con.rollback()
 
 if __name__ == '__main__':
