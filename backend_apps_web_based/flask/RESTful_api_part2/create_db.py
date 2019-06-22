@@ -18,7 +18,6 @@ def creat_db():
 	except Exception as e:
 		con.rollback()
 		print (str(e) + 'error within insert process')
-	con.close()
 
 if __name__ == '__main__':
 	creat_db()
