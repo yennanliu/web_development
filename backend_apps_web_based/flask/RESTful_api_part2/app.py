@@ -5,8 +5,7 @@ import os
 
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + 
-os.path.join(basedir, 'crud_sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'crud_sqlite')
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
@@ -21,11 +20,11 @@ def not_found(error):
 	return make_response(jsonify({'error': 'Not found'}), 404)
 
 # define DB model 
-class Products(db.model):
-	id  = db.Columns(db.Integer, primary_key=True)
-	title = db.Columns(db.String(80), unique=False)
-	description = db.Columns(db.String(80), unique=False)
-	sold = db.Columns(db.String(80), unique=False)
+class Products(db.Model):
+	id  = db.Column(db.Integer, primary_key=True)
+	title = db.Column(db.String(80), unique=False)
+	description = db.Column(db.String(80), unique=False)
+	sold = db.Column(db.String(80), unique=False)
 
 	def __init__(self, id, title, description, sold):
 		self.id = id 
@@ -33,7 +32,7 @@ class Products(db.model):
 		self.description = description
 		self.sold = sold
 
-class ProductSchema(ma.schema):
+class ProductSchema(ma.Schema):
 	class Meta:
 		# fields to expose 
 		fields = ('id', 'title', 'description', 'sold')
