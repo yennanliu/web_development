@@ -52,5 +52,18 @@ def create_product():
 		print ('Insert data OK')
 	return jsonify({'product': product}), 201 
 
+# PUT method 
+# dev 
+
+# DELETE method 
+@app.route('/product/api/v1.0/products/<int:product_id>', methods=['DELETE'])
+def delete_product(product_id):
+	with sqlite3.connect("database.db") as con:
+		cur = con.cursor()
+		cur.execute("DELETE FROM products WHERE ID = {};".format(product_id))
+		con.commit()
+		print ('Delete data OK')
+	return jsonify({'result': True})
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000, debug=True)
