@@ -21,7 +21,6 @@ def get_product():
 		cur = con.cursor()
 		cur.execute("SELECT * FROM products;")
 		result = cur.fetchall()
-		con.close()
 		print ('result :', result)
 		return jsonify(result)
 
@@ -32,7 +31,6 @@ def get_product_with_parameter(product_id):
 		cur = con.cursor()
 		cur.execute("SELECT * FROM products WHERE id = {};".format(product_id))
 		result = cur.fetchall()
-		con.close()
 		print ('result :', result)
 		if len(result) == 0:
 			abort(404)
@@ -51,10 +49,8 @@ def create_product():
 		'sold': False}
 		cur.execute("INSERT INTO products (id, title, description, sold) VALUES (?,?,?,?)",  (count, request.json['title'], request.json.get('description', ""), 'false'))
 		con.commit()
-		con.close()
 		print ('Insert data OK')
 	return jsonify({'product': product}), 201 
-
 
 # PUT method 
 # dev 
@@ -64,22 +60,20 @@ def update_product(product_id):
 		cur = con.cursor()
 		cur.execute("SELECT * FROM products where id = {};".format(product_id))
 		result = cur.fetchall() 
-		con.close()
-    product = [product for product in result if product['id'] == product_id]
-    if len(product) == 0:
-        abort(404)
-    if not request.json:
-        abort(400)
-    if 'title' in request.json and type(request.json['title']) != unicode:
-        abort(400)
-    if 'description' in request.json and type(request.json['description']) is not unicode:
-        abort(400)
-    if 'sold' in request.json and type(request.json['sold']) is not bool:
-        abort(400)
-    with sqlite3.connect("database.db") as con:
-    	cur.execute("UPDATE products SET title={},  description={}, sold={} WHERE id={};".format(request.json['title'], request.json['description'], request.json['sold'], product_id )) 
-    	con.close()
-    return jsonify({'product': product[0]}) 
+	if len(result) == 0:
+		abort(404)
+	if not request.json:
+		abort(400)
+	if 'title' in request.json and type(request.json['title']) != unicode:
+		abort(400)
+	if 'description' in request.json and type(request.json['description']) is not unicode:
+		abort(400)
+	if 'sold' in request.json and type(request.json['sold']) is not bool:
+		abort(400)
+	with sqlite3.connect("database.db") as con:
+		#cur.execute("UPDATE products SET  title = '{}', description = '{}' where id = {} ".format('coke','a coke', 3))
+		con.commit() 
+	return jsonify({'product': result[0]}) 
 
 # DELETE method 
 @app.route('/product/api/v1.0/products/<int:product_id>', methods=['DELETE'])
