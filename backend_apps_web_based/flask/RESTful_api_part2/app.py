@@ -24,5 +24,17 @@ def get_product():
 		print ('result :', result)
 		return jsonify(result)
 
+# GET method with parameter 
+@app.route('/product/api/v1.0/products/<int:product_id>', methods=['GET'])
+def get_product_with_parameter(product_id):
+	with sqlite3.connect("database.db") as con:
+		cur = con.cursor()
+		cur.execute("SELECT * FROM products WHERE id = {};".format(product_id))
+		result = cur.fetchall()
+		print ('result :', result)
+		if len(result) == 0:
+			abort(404)
+		return jsonify({'product':result})
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000, debug=True)
