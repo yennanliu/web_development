@@ -107,7 +107,7 @@ Date: Wed, 19 Jun 2019 10:27:38 GMT
 ```bash
 # UPDATE method 
 # (update the "sold" status of product which with id =2 )
-$ curl -i -H "Content-Type: application/json" -X PUT -d '{"sold":false}' http://0.0.0.0:5000/product/api/v1.0/products/2
+$ curl -i -H "Content-Type: application/json" -X PUT -d '{"title": "THIS IS CAKE","description":"cake tasted good"}' http://0.0.0.0:5000/product/api/v1.0/products/2
 
 HTTP/1.0 200 OK
 Content-Type: application/json
