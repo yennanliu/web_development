@@ -29,11 +29,14 @@ class TestDB(unittest.TestCase):
         self.assertEqual(app.debug, False)
     # executed after each test
     def tearDown(self):
-        pass
- 	# tests 
+        db.session.remove()
+        db.drop_all()
+    # tests 
     def test_main_page(self):
         response = self.app.get('/', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
+    # test models 
+    # TODO, will update this when creating DB via db model 
 
 if __name__ == "__main__":
     TestHelloworld()
