@@ -27,3 +27,5 @@ $ pytest
 ## Ref 
 - python test 
 - Unit test 
+	- https://www.patricksoftwareblog.com/unit-testing-a-flask-application/
+	- https://stackoverflow.com/questions/31716604/how-to-setup-testing-script-in-flask-with-sqlite
