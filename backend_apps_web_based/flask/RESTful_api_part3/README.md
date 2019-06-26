@@ -22,7 +22,40 @@ $ pip install -r requirements.txt &&  python create_db.py && python app.py
 ```
 ```bash
 $ cd~ && cd web_development/backend_apps_web_based/flask/RESTful_api_part3
-$ pytest 
+
+# test via pytest 
+$ pytest
+
+# ============================= test session starts ==============================
+# platform darwin -- Python 3.6.4, pytest-3.3.1, py-1.5.2, pluggy-0.6.0
+# rootdir: /Users/jerryliu/web_development/backend_apps_web_based/flask/RESTful_api_part3, inifile:
+# collected 1 item                                                               
+
+# app_test.py .                                                            [100%]
+
+# =========================== 1 passed in 0.57 seconds ===========================
+
+# test via pytest 
+$ python  app_test.py 
+
+# /Users/jerryliu/anaconda3/envs/yen_dev/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py:814: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+#   'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+# /Users/jerryliu/anaconda3/envs/yen_dev/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py:835: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+#   'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+# <Response [200]>
+# .
+# ----------------------------------------------------------------------
+# Ran 1 test in 0.014s
+
+# OK
+
+# coverage report
+$ coverage report -m app_test.py
+
+# Name          Stmts   Miss  Cover   Missing
+# -------------------------------------------
+# app_test.py      31      0   100%
+
 ```
 ## Ref 
 - python test 
