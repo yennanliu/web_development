@@ -15,7 +15,7 @@
 # fork the project 
 # open 1 terminal run below commands 
 $ cd~ && git clone https://github.com/yennanliu/web_development.git
-$ cd~ && cd web_development/backend_apps_web_based/flask/RESTful_api_part1
+$ cd~ && cd web_development/backend_apps_web_based/flask/RESTful_api_part2
 $ pip install -r requirements.txt && python app.py 
 
 # when the flask server run at local successfully, 
