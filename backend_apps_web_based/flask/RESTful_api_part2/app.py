@@ -53,7 +53,6 @@ def create_product():
 	return jsonify({'product': product}), 201 
 
 # PUT method 
-# dev 
 @app.route('/product/api/v1.0/products/<int:product_id>', methods=['PUT'])
 def update_product(product_id):
 	with sqlite3.connect("database.db") as con:
