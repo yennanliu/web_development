@@ -16,7 +16,7 @@
 # open 1 terminal run below commands 
 $ cd~ && git clone https://github.com/yennanliu/web_development.git
 $ cd~ && cd web_development/backend_apps_web_based/flask/RESTful_api_part2
-$ pip install -r requirements.txt && python app.py 
+$ pip install -r requirements.txt &&  python create_db.py && python app.py 
 
 # when the flask server run at local successfully, 
 # open the other terminal run the folloeing commands 
