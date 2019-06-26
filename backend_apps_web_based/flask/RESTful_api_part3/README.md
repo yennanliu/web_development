@@ -31,12 +31,12 @@ $ pytest
 # rootdir: /Users/jerryliu/web_development/backend_apps_web_based/flask/RESTful_api_part3, inifile:
 # collected 1 item                                                               
 
-# app_test.py .                                                            [100%]
+# test.py .                                                            [100%]
 
 # =========================== 1 passed in 0.57 seconds ===========================
 
 # test via pytest 
-$ python  app_test.py 
+$ python  test.py 
 
 # /Users/jerryliu/anaconda3/envs/yen_dev/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py:814: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
 #   'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
@@ -50,11 +50,11 @@ $ python  app_test.py
 # OK
 
 # coverage report
-$ coverage report -m app_test.py
+$ coverage report -m test.py
 
 # Name          Stmts   Miss  Cover   Missing
 # -------------------------------------------
-# app_test.py      31      0   100%
+# test.py      31      0   100%
 
 ```
 ## Ref 
