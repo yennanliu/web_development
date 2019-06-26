@@ -60,18 +60,17 @@ def update_product(product_id):
 		cur = con.cursor()
 		cur.execute("SELECT * FROM products where id = {};".format(product_id))
 		result = cur.fetchall() 
-	if len(result) == 0:
-		abort(404)
-	if not request.json:
-		abort(400)
-	if 'title' in request.json and type(request.json['title']) != unicode:
-		abort(400)
-	if 'description' in request.json and type(request.json['description']) is not unicode:
-		abort(400)
-	if 'sold' in request.json and type(request.json['sold']) is not bool:
-		abort(400)
-	with sqlite3.connect("database.db") as con:
-		#cur.execute("UPDATE products SET  title = '{}', description = '{}' where id = {} ".format('coke','a coke', 3))
+		if len(result) == 0:
+			abort(404)
+		if not request.json:
+			abort(400)
+		if 'title' in request.json and type(request.json['title']) != str:
+			abort(400)
+		if 'description' in request.json and type(request.json['description']) is not str:
+			abort(400)
+		if 'sold' in request.json and type(request.json['sold']) is not bool:
+			abort(400)
+		cur.execute("UPDATE products SET  title = '{}', description = '{}' where id = {} ".format(request.json['title'],request.json['description'], product_id))
 		con.commit() 
 	return jsonify({'product': result[0]}) 
 
