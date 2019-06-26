@@ -65,9 +65,9 @@ def update_product(product_id):
         abort(404)
     if not request.json:
         abort(400)
-    if 'title' in request.json and type(request.json['title']) != unicode:
+    if 'title' in request.json and type(request.json['title']) != str:
         abort(400)
-    if 'description' in request.json and type(request.json['description']) is not unicode:
+    if 'description' in request.json and type(request.json['description']) is not str:
         abort(400)
     if 'sold' in request.json and type(request.json['sold']) is not bool:
         abort(400)
