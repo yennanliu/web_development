@@ -11,7 +11,14 @@
 
 ## Quick start 
 ```bash
-# dev 
+# step 1) init db 
+python config.py db init
+
+# step 2) db migrate 
+python config.py db migrate
+
+# step 3) db upgrade 
+python config.py db upgrade
 ```
 ## Ref 
 - https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
