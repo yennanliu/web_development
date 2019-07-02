@@ -14,3 +14,5 @@
 # dev 
 ```
 ## Ref 
+- https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
+- https://github.com/twtrubiks/Flask-Migrate-Tutorial
