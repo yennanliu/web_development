@@ -19,6 +19,8 @@ python config.py db migrate
 
 # step 3) db upgrade 
 python config.py db upgrade
+
+
 ```
 ## Ref 
 - https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
