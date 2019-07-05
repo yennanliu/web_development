@@ -1,4 +1,5 @@
 flask
 flask_sqlalchemy
 flask-migrate
+flask_script
 coverage
