@@ -3,8 +3,10 @@ import pytest, unittest
 from flask_sqlalchemy import SQLAlchemy
 # main flask app 
 from app import app 
+from db import db 
+from config import Product
 
-db = SQLAlchemy(app)
+#db = SQLAlchemy(app)
 
 def TestHelloworld():
     response = requests.get('http://0.0.0.0:5000/')
@@ -31,12 +33,24 @@ class TestDB(unittest.TestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
-    # tests 
-    def test_main_page(self):
+    # tests api 
+    def test_api(self):
         response = self.app.get('/', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
-    # test models 
-    # TODO, will update this when creating DB via db model 
+    # test DB model 
+    def test_model(self):
+        # add prod 1 
+        product1 = Product("cafe latte", "coffee + milk", "False") 
+        db.session.add(product1)
+        # add prod 2 
+        product2 = Product("pizza", "dev love", "True") 
+        db.session.add(product2)
+        # add prod 3 
+        product3 = Product("cake", "this is apple cake", "True") 
+        db.session.add(product3)
+        db.session.commit()
+        assert len(Product.query.all()) == 3 
+ 
 
 if __name__ == "__main__":
     TestHelloworld()
