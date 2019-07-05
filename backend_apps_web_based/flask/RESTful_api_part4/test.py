@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 # main flask app 
 from app import app 
 from db import db 
-from config import Product
+from model import ProductData
 
 #db = SQLAlchemy(app)
 
@@ -26,7 +26,7 @@ class TestDB(unittest.TestCase):
         app.config['DEBUG'] = False
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + 'database.db'
         self.app = app.test_client()
-        db.drop_all()
+        #db.drop_all()
         db.create_all()
         self.assertEqual(app.debug, False)
     # executed after each test
@@ -40,16 +40,16 @@ class TestDB(unittest.TestCase):
     # test DB model 
     def test_model(self):
         # add prod 1 
-        product1 = Product("cafe latte", "coffee + milk", "False") 
+        product1 = ProductData("cafe latte", "coffee + milk", "False") 
         db.session.add(product1)
         # add prod 2 
-        product2 = Product("pizza", "dev love", "True") 
+        product2 = ProductData("pizza", "dev love", "True") 
         db.session.add(product2)
         # add prod 3 
-        product3 = Product("cake", "this is apple cake", "True") 
+        product3 = ProductData("cake", "this is apple cake", "True") 
         db.session.add(product3)
         db.session.commit()
-        assert len(Product.query.all()) == 3 
+        assert len(ProductData.query.all()) == 3 
  
 
 if __name__ == "__main__":
