@@ -19,5 +19,10 @@ class Product(db.Model):
 	description = db.Column(db.String(128), unique=False, primary_key=False)
 	sold = db.Column(db.String(64), unique=False, primary_key=False)
 
+	def __init__(self, title, description, sold):
+		self.title = title
+		self.description = description
+		self.sold = sold
+
 if __name__ == '__main__':
 	manager.run()
