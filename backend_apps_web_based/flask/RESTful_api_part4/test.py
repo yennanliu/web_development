@@ -3,7 +3,7 @@ import pytest, unittest
 from flask_sqlalchemy import SQLAlchemy
 # main flask app 
 from app import app 
-from db import db 
+from config import Product, db 
 from model import ProductData
 
 #db = SQLAlchemy(app)
@@ -26,13 +26,14 @@ class TestDB(unittest.TestCase):
         app.config['DEBUG'] = False
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + 'database.db'
         self.app = app.test_client()
-        #db.drop_all()
+        db.drop_all()
         db.create_all()
         self.assertEqual(app.debug, False)
     # executed after each test
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+        pass 
     # tests api 
     def test_api(self):
         response = self.app.get('/', follow_redirects=True)
@@ -49,10 +50,11 @@ class TestDB(unittest.TestCase):
         product3 = ProductData("cake", "this is apple cake", "True") 
         db.session.add(product3)
         db.session.commit()
-        assert len(ProductData.query.all()) == 3 
+        assert len(ProductData.query.all()) == 3
  
 
 if __name__ == "__main__":
     TestHelloworld()
     TestApi()
+    test_model()
     unittest.main()
