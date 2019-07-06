@@ -6,8 +6,6 @@ from app import app
 from config import Product, db 
 from model import ProductData
 
-#db = SQLAlchemy(app)
-
 def TestHelloworld():
     response = requests.get('http://0.0.0.0:5000/')
     assert response.status_code == 200
@@ -34,7 +32,7 @@ class TestDB(unittest.TestCase):
         db.session.remove()
         db.drop_all()
         pass 
-    # tests api 
+    # test api 
     def test_api(self):
         response = self.app.get('/', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
@@ -52,7 +50,6 @@ class TestDB(unittest.TestCase):
         db.session.commit()
         assert len(ProductData.query.all()) == 3
  
-
 if __name__ == "__main__":
     TestHelloworld()
     TestApi()
