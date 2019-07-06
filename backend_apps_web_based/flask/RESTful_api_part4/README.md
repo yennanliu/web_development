@@ -11,6 +11,8 @@
 
 ## Quick start 
 ```bash
+### DB init 
+
 # step 1) init db 
 $ python config.py db init
 
@@ -62,6 +64,102 @@ $ python db.py
 # insert data to DB ok
 
 ```
+```bash
+### code test
+$ pytest test.py
+=============================== test session starts ================================
+platform darwin -- Python 3.5.4, pytest-5.0.1, py-1.8.0, pluggy-0.12.0
+rootdir: /Users/yennanliu/web_development/backend_apps_web_based/flask/RESTful_api_part4
+plugins: celery-4.2.1
+collected 2 items                                                                  
+
+test.py ..                                                                   [100%]
+
+================================= warnings summary =================================
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94
+  /Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/operations/base.py:94: DeprecationWarning: inspect.getargspec() is deprecated, use inspect.signature() instead
+    spec = inspect.getargspec(fn)
+
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76
+  /Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/alembic/util/langhelpers.py:76: DeprecationWarning: inspect.getargspec() is deprecated, use inspect.signature() instead
+    spec = inspect.getargspec(fn)
+
+/Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:800
+  /Users/yennanliu/anaconda3/envs/ds_dash/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:800: UserWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.
+    warnings.warn('SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.')
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+====================== 2 passed, 69 warnings in 0.84 seconds =======================
+
+```
+
+
 ## Ref 
 - https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
 - https://github.com/twtrubiks/Flask-Migrate-Tutorial
