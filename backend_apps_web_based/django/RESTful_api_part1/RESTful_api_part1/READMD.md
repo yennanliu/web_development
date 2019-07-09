@@ -1,9 +1,8 @@
-# INTRO : Django RESTful API V1
+# Django RESTful API V1
+
+- INTRO : RESTful API 
 	- dev
 
-### INTRO : RESTful API 
-	- dev
-
-### Ref
+- Ref
 	- https://scotch.io/tutorials/build-a-rest-api-with-django-a-test-driven-approach-part-1
 	- https://realpython.com/test-driven-development-of-a-django-restful-api/
