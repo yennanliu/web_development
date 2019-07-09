@@ -2,7 +2,7 @@ from django.test import TestCase
 from .models import Bucketlist 
 from rest_framework.test import APIClient 
 from rest_framework import status 
-from django.core.urlresolvers import reverse 
+from django.urls import reverse 
 
 # Create your tests here.
 class ModelTestCase(TestCase):

@@ -5,8 +5,10 @@ from .models import Bucketlist
 
 # Create your views here.
 class CreateView(generics.ListCreateAPIView):
-	queryset = Bucketlist.objects.all()
-	serializers_class = BucketlistSerializer
+    """This class defines the create behavior of our rest api."""
+    queryset = Bucketlist.objects.all()
+    serializer_class = BucketlistSerializer
 
-	def perform_create(self, serializers):
-		serializers.save()
+    def perform_create(self, serializer):
+        """Save the post data when creating a new bucketlist."""
+        serializer.save()
